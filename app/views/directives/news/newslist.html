@@ -3,7 +3,7 @@
         <img class="media-object" ng-src="http://placehold.it/550x350" alt="testing image" />
     </span>
     <div class="col-md-8">
-        <h3 class="col-md-12">{{news}}</h3>
-        <p class="col-md-12">{{news}}</p>
+        <h3 class="col-md-12"><a ng-href="#/news?id={{news.id}}">{{news.title}}</a></h3>
+        <p class="col-md-12">{{news.content}}</p>
     </div>
 </div>
