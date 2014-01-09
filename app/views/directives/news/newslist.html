@@ -4,6 +4,6 @@
     </span>
     <div class="col-md-8">
         <h3 class="col-md-12"><a ng-href="#/news?id={{news.id}}">{{news.title}}</a></h3>
-        <p class="col-md-12">{{news.content}}</p>
+        <p class="col-md-12">{{news.content | truncate:25}}</p>
     </div>
 </div>
