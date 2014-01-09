@@ -8,8 +8,12 @@ angular.module('websiteApp', [
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
+        templateUrl: 'views/index.html',
         controller: 'MainCtrl'
+      })
+      .when('/Mag', {
+        templateUrl: 'views/Mag.html',
+        controller: 'MagCtrl'
       })
       .otherwise({
         redirectTo: '/'
