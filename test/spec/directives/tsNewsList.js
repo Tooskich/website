@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Directive: NewsFeed', function () {
+describe('Directive: tsNewsList', function () {
 
   // load the directive's module
   beforeEach(module('websiteApp'));
@@ -13,8 +13,8 @@ describe('Directive: NewsFeed', function () {
   }));
 
   it('should make hidden element visible', inject(function ($compile) {
-    element = angular.element('<-news-feed></-news-feed>');
+    element = angular.element('<ts-news-list></ts-news-list>');
     element = $compile(element)(scope);
-    expect(element.text()).toBe('this is the NewsFeed directive');
+    expect(element.text()).toBe('this is the tsNewsList directive');
   }));
 });
