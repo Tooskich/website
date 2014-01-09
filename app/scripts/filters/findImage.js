@@ -4,6 +4,8 @@ angular.module('websiteApp')
     .filter('findImage', function() {
         return function(input) {
             var re = /http:\/\/.+?\.jpg|jpeg/gi;
-            return re.exec(input) || '/images/Sflocon_vecteur_Transparent.png';
+            input = re.exec(input);
+            input = !!input ? input[0] : '/images/Sflocon_vecteur_Transparent.png';
+            return input;
         };
     });

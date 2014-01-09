@@ -1,51 +1,51 @@
 <div class="row">
-    <div id="ts-news" class="col-md-6">
-        <div class="col-md-12">
-            <span class="thumbnail">
-                <img class="media-object" ng-src="http://placehold.it/550x350" alt="testing image" />
-            </span>
+	<div id="ts-news" class="col-md-6">
+		<div class="col-md-12">
+			
+			<div ts-news-carousel news="news"></div>
 
-            <div ng-repeat="n in news | orderBy:'id':true">
-                <div ts-news-list news="n"></div>
-            </div>
-        </div>
-    </div>
-
-
-    <div id="ts-widgets" class="col-md-3 hidden-xs hidden-sm">
-        <span class="thumbnail">
-            <img class="media-object" ng-src="http://placehold.it/550x350" alt="testing image" />
-        </span>
+			<div ng-repeat="n in news | orderBy:'id':true">
+				<div ts-news-list news="n"></div>
+			</div>
+		</div>
+	</div>
 
 
-        <span class="thumbnail">
-            <img class="media-object" ng-src="http://placehold.it/550x350" alt="testing image" />
-        </span>
+	<div id="ts-widgets" class="col-md-3 hidden-xs hidden-sm">
+		<span class="thumbnail">
+			<img class="media-object" ng-src="http://placehold.it/550x350" alt="testing image" />
+		</span>
 
 
-        <span class="thumbnail">
-            <img class="media-object" ng-src="http://placehold.it/550x350" alt="testing image" />
-        </span>
+		<span class="thumbnail">
+			<img class="media-object" ng-src="http://placehold.it/550x350" alt="testing image" />
+		</span>
 
 
-        <span class="thumbnail">
-            <img class="media-object" ng-src="http://placehold.it/550x350" alt="testing image" />
-        </span>
-    </div>
+		<span class="thumbnail">
+			<img class="media-object" ng-src="http://placehold.it/550x350" alt="testing image" />
+		</span>
 
 
-    <div id="ts-ad" class="col-md-3 hidden-xs hidden-sm">
+		<span class="thumbnail">
+			<img class="media-object" ng-src="http://placehold.it/550x350" alt="testing image" />
+		</span>
+	</div>
 
-        <span class="thumbnail">
-            <img class="media-object" ng-src="http://placehold.it/550x350" alt="testing image" />
-        </span>
 
-        <span class="thumbnail">
-            <img class="media-object" ng-src="http://placehold.it/350x750" alt="testing image" />
-        </span>
 
-        <span class="thumbnail">
-            <img class="media-object" ng-src="http://placehold.it/550x350" alt="testing image" />
-        </span>
-    </div>
+	<div id="ts-ad" class="col-md-3 hidden-xs hidden-sm">
+
+		<span class="thumbnail">
+			<img class="media-object" ng-src="http://placehold.it/550x350" alt="testing image" />
+		</span>
+
+		<span class="thumbnail">
+			<img class="media-object" ng-src="http://placehold.it/350x750" alt="testing image" />
+		</span>
+
+		<span class="thumbnail">
+			<img class="media-object" ng-src="http://placehold.it/550x350" alt="testing image" />
+		</span>
+	</div>
 </div>

@@ -7,7 +7,7 @@ angular.module('websiteApp')
             title: 'Exemple 1',
             author: 'Séb',
             date: 1389283402,
-            content: 'Voilà un exemple de news.',
+            content: 'Voilà un exemple de news. src="http://www.swiss-ski.ch/uploads/pics/Aerni_Luca_07.jpg"',
         }, {
             id: 3,
             title: 'Exemple 3 Longue',

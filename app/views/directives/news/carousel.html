@@ -1,0 +1,13 @@
+<!-- <span class="thumbnail"> -->
+    <carousel interval="interval">
+        <slide ng-repeat="n in news" active="n.active">
+            <img ng-src="{{n.content | findImage}}" style="margin:auto;" alt="{{n.title}}" />
+            <div class="carousel-caption">
+                <h2><a ng-href="#/news?id={{news.id}}" class="white"><strong>{{n.title}}</strong></a></h2>
+            </div>
+        </slide>
+    </carousel>
+    <br />
+<!-- </span> -->
+
+

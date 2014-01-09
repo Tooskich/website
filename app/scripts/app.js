@@ -3,7 +3,8 @@
 angular.module('websiteApp', [
   'ngCookies',
   'ngResource',
-  'ngSanitize'
+  'ngSanitize',
+  'ui.bootstrap',
 ])
   .config(function ($routeProvider) {
     $routeProvider

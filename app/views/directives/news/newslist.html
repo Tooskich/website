@@ -1,9 +1,9 @@
 <div class="col-md-12 row">
     <span class="thumbnail col-md-3">
-        <img class="media-object" ng-src="{{news.content | findImage}}" alt="testing image" />
+        <img class="media-object" ng-src="{{news.content | findImage}}" alt="{{news.title}}" />
     </span>
     <div class="col-md-9">
         <h3 class="col-md-12"><a ng-href="#/news?id={{news.id}}">{{news.title}}</a></h3>
-        <p class="col-md-12">Le {{news.date*1000|date:'dd/mm/yyyy'}}, par {{news.author}}</p>
+        <h5 class="col-md-12">{{news.date*1000|date:'dd/mm/yyyy'}}</h5>
     </div>
 </div>
