@@ -4,6 +4,6 @@ angular.module('websiteApp')
     .filter('findImage', function() {
         return function(input) {
             var re = /http:\/\/.+?\.jpg|jpeg/gi;
-            return re.exec(input) || 'http://www.tooski.ch/images/Sflocon_vecteur_Transparent.png';
+            return re.exec(input) || '/images/Sflocon_vecteur_Transparent.png';
         };
     });

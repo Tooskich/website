@@ -1,6 +1,6 @@
 <div class="col-md-12 row">
     <span class="thumbnail col-md-3">
-        <img class="media-object" ng-src="http://placehold.it/550x350" alt="testing image" />
+        <img class="media-object" ng-src="{{news.content | findImage}}" alt="testing image" />
     </span>
     <div class="col-md-9">
         <h3 class="col-md-12"><a ng-href="#/news?id={{news.id}}">{{news.title}}</a></h3>
