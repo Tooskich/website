@@ -5,7 +5,7 @@
                 <img class="media-object" ng-src="http://placehold.it/550x350" alt="testing image" />
             </span>
 
-            <div ng-repeat="n in news | orderBy:+id">
+            <div ng-repeat="n in news | orderBy:'id':true">
                 <div ts-news-list news="n"></div>
             </div>
         </div>

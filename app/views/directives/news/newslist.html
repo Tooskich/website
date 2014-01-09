@@ -2,8 +2,8 @@
     <span class="thumbnail col-md-3">
         <img class="media-object" ng-src="http://placehold.it/550x350" alt="testing image" />
     </span>
-    <div class="col-md-8">
+    <div class="col-md-9">
         <h3 class="col-md-12"><a ng-href="#/news?id={{news.id}}">{{news.title}}</a></h3>
-        <p class="col-md-12">{{news.content | truncate:25}}</p>
+        <p class="col-md-12">Le {{news.date*1000|date:'dd/mm/yyyy'}}, par {{news.author}}</p>
     </div>
 </div>

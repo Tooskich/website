@@ -13,7 +13,7 @@ angular.module('websiteApp')
             title: 'Exemple 3 Longue',
             author: 'Séb',
             date: 1389283404,
-            content: 'Voilà un exemple de news un peu plus long. Elle devrait être coupée vers la fin, parce que le texte est décidement trop long...',
+            content: 'Voilà un exemple de news un peu plus long. Elle devrait être coupée vers la fin, parce que le texte est décidement trop long.',
         }, {
             id: 2,
             title: 'Exemple 2',

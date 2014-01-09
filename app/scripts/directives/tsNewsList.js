@@ -9,7 +9,6 @@ angular.module('websiteApp')
       scope: {
         news: '=news',
       },
-      link: function postLink(scope, element, attrs) {
-      },
+      link: function postLink(scope, element, attrs) {},
     };
   });
