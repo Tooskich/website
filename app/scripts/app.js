@@ -5,6 +5,7 @@ angular.module('websiteApp', [
   'ngResource',
   'ngSanitize',
   'ui.bootstrap',
+  'ngDisqus',
 ])
   .config(function ($routeProvider) {
     $routeProvider
