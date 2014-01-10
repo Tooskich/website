@@ -1,10 +1,6 @@
 'use strict';
 
 angular.module('websiteApp')
-  .controller('NewsCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+	.controller('NewsCtrl', function($scope, $routeParams) {
+		var newsId = $routeParams.id;
+	});

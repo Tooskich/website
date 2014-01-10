@@ -1,12 +1,11 @@
 'use strict';
 
 angular.module('websiteApp')
-  .directive('tsPubSide', function () {
-    return {
-      template: '<div></div>',
-      restrict: 'E',
-      link: function postLink(scope, element, attrs) {
-        element.text('this is the tsPubSide directive');
-      }
-    };
-  });
+	.directive('tsPubSide', function() {
+		return {
+			templateUrl: 'views/directives/pub/side.html',
+			restrict: 'EACM',
+			link: function postLink(scope, element, attrs) {
+			}
+		};
+	});
