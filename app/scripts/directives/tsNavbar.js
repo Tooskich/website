@@ -7,6 +7,7 @@ angular.module('websiteApp')
       restrict: 'EACM',
       replace: true,
       link: function postLink(scope, element, attrs) {
+      	// TODO: When person clicks on button, then add the active class
       }
     };
   });
