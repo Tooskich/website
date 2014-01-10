@@ -7,7 +7,7 @@ angular.module('websiteApp', [
   'ui.bootstrap',
   'ngDisqus',
 ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/index.html',
@@ -24,4 +24,6 @@ angular.module('websiteApp', [
       .otherwise({
         redirectTo: '/'
       });
+      $locationProvider.html5Mode(false).hashPrefix('!');
+      // $locationProvider.hashPrefix('!')
   });
