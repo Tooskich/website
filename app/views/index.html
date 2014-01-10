@@ -4,7 +4,7 @@
 			
 			<div ts-news-carousel news="randFirstNews" style="height:500px; width:auto;"></div>
 
-			<div ng-repeat="n in news | orderBy:'id':true">
+			<div ng-repeat="n in news | orderBy:'date':true">
 				<div ts-news-list news="n"></div>
 			</div>
 		</div>

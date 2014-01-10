@@ -10,5 +10,4 @@ angular.module('websiteApp')
         var news = News.getNews();
         $scope.news = news;
         $scope.randFirstNews = shuffle(news.slice(0, 5));
-
     });
