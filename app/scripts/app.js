@@ -16,6 +16,10 @@ angular.module('websiteApp', [
         templateUrl: 'views/Mag.html',
         controller: 'MagCtrl'
       })
+      .when('/News', {
+        templateUrl: 'views/news.html',
+        controller: 'NewsCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
