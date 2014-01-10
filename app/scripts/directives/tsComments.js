@@ -6,10 +6,6 @@ angular.module('websiteApp')
 		return {
 			templateUrl: 'views/directives/comments/comments.html',
 			restrict: 'EACM',
-			scope: {
-				disqusId: '='
-			},
-			link: function postLink(scope, element, attrs) {
-			}
+			link: function postLink(scope, element, attrs) {}
 		};
 	});

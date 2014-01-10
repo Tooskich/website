@@ -25,5 +25,4 @@ angular.module('websiteApp', [
         redirectTo: '/'
       });
       $locationProvider.html5Mode(false).hashPrefix('!');
-      // $locationProvider.hashPrefix('!')
   });
