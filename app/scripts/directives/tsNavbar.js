@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('websiteApp')
-  .directive('tsNavbar', function() {
+  .directive('tsNavbar', function(Blog) {
     return {
       templateUrl: 'views/directives/core/navbar.html',
       restrict: 'EACM',
@@ -9,25 +9,16 @@ angular.module('websiteApp')
       link: function postLink(scope, element, attrs) {
         scope.resultsCat = [{
           title: 'Coupe du Monde',
-          link: ''
+          link: 'Ranking?type=WC'
         }, {
           title: 'Coupe d\'Europe',
-          link: ''
+          link: 'Ranking?type=EC'
         }, {
           title: 'FIS',
-          link: ''
+          link: 'Ranking?type=FIS'
         }, ];
 
-        scope.blogsCat = [{
-          title: 'Antoine Perrottet',
-          link: ''
-        }, {
-          title: 'Axel Béguelin',
-          link: ''
-        }, {
-          title: 'Un autre Skieur',
-          link: ''
-        }, ];
+        scope.blogsCat = Blog.getBlogNames();
 
         scope.pagesCat = [{
           title: 'Staff',
@@ -50,21 +41,15 @@ angular.module('websiteApp')
         scope.selectNav = function(id) {
           scope.activeCat = id;
         };
-        scope.activeCat = 1;
 
         scope.revealPills = function(id, cat) {
-          var iter,
-            pillsNav = document.getElementById('ts-nav-subbar'),
-            pillsList = document.getElementById('ts-nav-subbar-list');
+          var pillsNav = document.getElementById('ts-nav-subbar');
           scope.selectNav(id);
-          pillsList.innerHTML = '';
           if (cat === null) {
             pillsNav.style.display = 'none';
             return true;
           }
-          for (iter = 0; iter < cat.length; iter++) {
-            pillsList.innerHTML += '<li><a style="padding:5px;" ng-href="' + cat[iter].link + '">' + cat[iter].title + '</a></li>';
-          }
+          scope.currentCat = cat;
           pillsNav.style.display = 'block';
         };
       }

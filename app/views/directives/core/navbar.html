@@ -24,7 +24,9 @@
 	</nav>
 
 	<div class="container" id="ts-nav-subbar" style="display:none;">
-		<ul class="nav nav-pills well well-sm" id="ts-nav-subbar-list"></ul>
+		<ul class="nav nav-pills well well-sm" id="ts-nav-subbar-list">
+			<li ng-repeat="cat in currentCat"><a ng-href="#!/{{cat.link}}" style="padding:3px;">{{cat.title}}</a></li>
+		</ul>
 	</div>
 	
 </div>
