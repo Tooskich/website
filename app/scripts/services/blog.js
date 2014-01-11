@@ -47,5 +47,17 @@ angular.module('websiteApp')
         return 'http://data.fis-ski.com/dynamic/athlete-biography.html?sector=AL&competitorid=190056&type=result';
       },
 
+      getCV: function(id) {
+        return 'Né: 12.12.12 <br /> Mange des petits poids au petit déjeuner. <br /> Il y a beaucoup de petits dans la phrase précédente, mais au moins elle n\'est pas trop courte.';
+      },
+
+      getName: function(id) {
+        return 'Axel Béguelin';
+      },
+
+      getProfilePic: function(id) {
+        return 'http://www.arcinfo.ch/multimedia/images/archives_arcinfo//2010.04.09/axel_beguelin.jpg';
+      },
+
     };
   });
