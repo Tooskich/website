@@ -10,7 +10,7 @@ angular.module('websiteApp')
 					squares = Pub.getSquareBanner();
 				scope.vertical = verticals[0];
 				scope.square1 = squares[0];
-				scope.square2 = squares.length >1 ? squares[1] : squares[0];
+				scope.square2 = squares.length > 1 ? squares[1] : squares[0];
 			}
 		};
 	});
