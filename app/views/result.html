@@ -1,1 +1,17 @@
-<p>This is the Result view.</p>
+<div class="row">
+	<div class="col-md-9 table-responsive">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th ng-repeat="head in headers">{{head}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="result in results">
+					<td ng-repeat="value in result">{{value}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div ts-pub-side></div>
+</div>
