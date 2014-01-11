@@ -43,5 +43,9 @@ angular.module('websiteApp')
         }, ];
       },
 
+      getLinkResults: function(id) {
+        return 'http://data.fis-ski.com/dynamic/athlete-biography.html?sector=AL&competitorid=190056&type=result';
+      },
+
     };
   });
