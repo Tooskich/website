@@ -24,8 +24,8 @@ angular.module('websiteApp')
         return pages;
       },
 
-      getPage: function() {
-        return '<p>Salut comment tu fais pour manger du <b>thon</b> ?</p>';
+      getPage: function(id) {
+        return '<p>Salut comment tu fais pour manger du <b>thon</b> id: ' + id + ' ?</p>';
       },
 
     };
