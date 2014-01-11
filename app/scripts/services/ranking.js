@@ -2,15 +2,20 @@
 
 angular.module('websiteApp')
   .factory('Ranking', function () {
-    // Service logic
-    // ...
-
-    var meaningOfLife = 42;
-
-    // Public API here
+    var rankings = [{
+          title: 'Coupe du Monde',
+          link: 'Ranking?type=WC'
+        }, {
+          title: 'Coupe d\'Europe',
+          link: 'Ranking?type=EC'
+        }, {
+          title: 'FIS',
+          link: 'Ranking?type=FIS'
+        }, ]
     return {
-      someMethod: function () {
-        return meaningOfLife;
-      }
+      getRankingLinks: function() {
+        return rankings;
+      },
+
     };
   });

@@ -1,22 +1,13 @@
 'use strict';
 
 angular.module('websiteApp')
-  .directive('tsNavbar', function(Blog, Page) {
+  .directive('tsNavbar', function(Blog, Page, Ranking) {
     return {
       templateUrl: 'views/directives/core/navbar.html',
       restrict: 'EACM',
       replace: true,
       link: function postLink(scope, element, attrs) {
-        scope.resultsCat = [{
-          title: 'Coupe du Monde',
-          link: 'Ranking?type=WC'
-        }, {
-          title: 'Coupe d\'Europe',
-          link: 'Ranking?type=EC'
-        }, {
-          title: 'FIS',
-          link: 'Ranking?type=FIS'
-        }, ];
+        scope.resultsCat = Ranking.getRankingLinks();
 
         scope.blogsCat = Blog.getBlogLinks();
 

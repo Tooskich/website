@@ -4,19 +4,19 @@ angular.module('websiteApp')
   .factory('Page', function () {
     var pages = [{
           title: 'Staff',
-          link: ''
+          link: '1'
         }, {
           title: 'Truc',
-          link: ''
+          link: '2'
         }, {
           title: 'Publicité',
-          link: ''
+          link: '3'
         }, {
           title: 'Muche',
-          link: ''
+          link: '4'
         }, {
           title: 'Muche2',
-          link: ''
+          link: '5'
         }, ];
 
     return {
