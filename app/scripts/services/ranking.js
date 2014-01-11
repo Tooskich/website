@@ -51,7 +51,30 @@ angular.module('websiteApp')
       genre: 'H'
     }, ];
 
-var ranking = [];
+    var ranking = [];
+
+    var leaders = {
+      men: [{
+        name: 'Marcel Hirscher',
+        points: 256
+      }, {
+        name: 'Aksel Lund Svindal',
+        points: 255
+      }, {
+        name: 'Ted Ligety',
+        points: 254
+      }, ],
+      women: [{
+        name: 'Lara Gut',
+        points: 256
+      }, {
+        name: 'Anna Fenninger',
+        points: 255
+      }, {
+        name: 'Michel Gisin',
+        points: 254
+      }, ],
+    };
 
     return {
       getRankingLinks: function() {
@@ -66,17 +89,8 @@ var ranking = [];
         return ranking;
       },
 
-      getGeneralRanking: function(cat) {
-        return [{
-          name: 'Marcel Hirscher',
-          points: 256
-        },{
-          name: 'Aksel Lund Svindal',
-          points: 255
-        },{
-          name: 'Ted Ligety',
-          points: 254
-        },];
+      getGeneralRanking: function(cat, genre) {
+        return genre === 'F' ? leaders.women : leaders.men;
       },
 
     };

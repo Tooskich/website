@@ -1,1 +1,18 @@
-<p>This is the directives/ranking/general view.</p>
+<table class="table table-condensed">
+	<thead>
+		<tr>
+			<th>n°</th>
+			<th>Nom</th>
+			<th>Points</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="rank in generalRanking">
+			<a ng-href="#!/Result?id={{rank.id}}">
+				<td>{{$index}}</td>
+				<td>{{rank.name}}</td>
+				<td>{{rank.points}}</td>
+			</a>
+		</tr>
+	</tbody>
+</table>

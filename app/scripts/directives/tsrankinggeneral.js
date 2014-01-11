@@ -3,10 +3,12 @@
 angular.module('websiteApp')
   .directive('tsRankingGeneral', function () {
     return {
-      template: '<div></div>',
-      restrict: 'E',
+      templateUrl: 'views/directives/ranking/general.html',
+      restrict: 'EACM',
+      scope: {
+      	generalRanking: '=ranking',
+      },
       link: function postLink(scope, element, attrs) {
-        element.text('this is the tsRankingGeneral directive');
       }
     };
   });
