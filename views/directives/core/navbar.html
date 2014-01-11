@@ -1,23 +1,32 @@
-<nav class="navbar navbar-default navbar-static-top" role="navigation">
-	<!-- Brand and toggle get grouped for better mobile display -->
+<div>
+	<nav class="navbar navbar-default navbar-static-top" role="navigation">
+		<!-- Brand and toggle get grouped for better mobile display -->
 
-	<div class="container">
-		<div class="navbar-header">
-			<a class="navbar-brand" ng-href="#">Tooski</a>
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" ng-href="#">Tooski</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li class="ts-nav-link {{{true: 'active', false: ''}[activeCat == 1]}}"><a ng-click="revealPills(1, null);" ng-href="#!/">Actu</a></li>
+					<li class="ts-nav-link {{{true: 'active', false: ''}[activeCat == 2]}}"><a ng-click="revealPills(2, null);" ng-href="#!/Mag">Mag</a></li>
+					<li class="ts-nav-link {{{true: 'active', false: ''}[activeCat == 3]}}"><a ng-click="revealPills(3, resultsCat);">Résultats</a></li>
+					<li class="ts-nav-link {{{true: 'active', false: ''}[activeCat == 4]}}"><a ng-click="revealPills(4, blogsCat);">Blogs</a></li>
+					<li class="ts-nav-link {{{true: 'active', false: ''}[activeCat == 5]}}"><a ng-click="revealPills(5, pagesCat);">À propos</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="http://team.tooski.ch" target="_blank">Tooski Teams</a></li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
 		</div>
+	</nav>
 
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse">
-			<ul class="nav navbar-nav">
-				<li class="ts-nav-link"><a ng-href="#!/">Actu</a></li>
-				<li class="ts-nav-link"><a ng-href="#!/Mag">Mag</a></li>
-				<li class="ts-nav-link"><a ng-href="#!/Ranking">Résultats</a></li>
-				<li class="ts-nav-link"><a ng-href="#!/Blog">Blogs</a></li>
-				<li class="ts-nav-link"><a ng-href="#!/Pages">À propos</a></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="http://team.tooski.ch" target="_blank">Tooski Teams</a></li>
-			</ul>
-		</div><!-- /.navbar-collapse -->
+	<div class="container" id="ts-nav-subbar" style="display:none">
+		<ul class="nav nav-pills well well-sm" id="ts-nav-subbar-list">
+			<li ng-repeat="cat in currentCat"><a ng-href="#!/{{cat.link}}" style="padding:3px">{{cat.title}}</a></li>
+		</ul>
 	</div>
-</nav>
+	
+</div>
