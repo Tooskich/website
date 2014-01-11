@@ -13,14 +13,55 @@
 					<a ng-href="#!/Result?id={{rank.id}}">
 						<td>{{rank.date*1000 | date:'dd/MM/yyyy'}}</td>
 						<td>{{rank.title}}</td>
-						<td>{{rank.category}}</td>
+						<td>{{rank.genre}}</td>
 					</a>
 				</tr>
 			</tbody>
 		</table>
 	</div>
 	<div class="col-md-4">
-		<img src="http://dummyimage.com/800x600/292929/e3e3e3&text=Classements">
+		<tabset>
+			<tab heading="Hommes">
+				<table class="table table-condensed">
+					<thead>
+						<tr>
+							<th>n°</th>
+							<th>Nom</th>
+							<th>Points</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="rank in generalRanking">
+							<a ng-href="#!/Result?id={{rank.id}}">
+								<td>{{$index+1}}</td>
+								<td>{{rank.name}}</td>
+								<td>{{rank.points}}</td>
+							</a>
+						</tr>
+					</tbody>
+				</table>
+			</tab>
+			<tab heading="Femmes">
+				<table class="table table-condensed">
+					<thead>
+						<tr>
+							<th>n°</th>
+							<th>Nom</th>
+							<th>Points</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="rank in generalRanking">
+							<a ng-href="#!/Result?id={{rank.id}}">
+								<td>{{$index}}</td>
+								<td>{{rank.name}}</td>
+								<td>{{rank.points}}</td>
+							</a>
+						</tr>
+					</tbody>
+				</table>
+			</tab>
+		</tabset>
 	</div>
 	<div ts-pub-side></div>
 </div>

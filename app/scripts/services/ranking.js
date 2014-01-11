@@ -18,32 +18,41 @@ angular.module('websiteApp')
       date: 1389476529,
       title: 'GS Adelboden',
       category: 'WC',
+      genre: 'H'
     }, {
       id: 2,
       date: 1388476529,
       title: 'SL Adelboden',
       category: 'WC',
+      genre: 'H'
     }, {
       id: 3,
       date: 1387476529,
       title: 'GS Alta Badia',
       category: 'WC',
+      genre: 'F'
     }, {
       id: 4,
       date: 1386476529,
       title: 'DH Alta Badia',
       category: 'WC',
+      genre: 'F'
     }, {
       id: 5,
       date: 1385476529,
       title: 'DH Adelboden',
       category: 'WC',
+      genre: 'H'
     }, {
       id: 6,
       date: 1384476529,
       title: 'DH Adelboden',
       category: 'WC',
+      genre: 'H'
     }, ];
+
+var ranking = [];
+
     return {
       getRankingLinks: function() {
         return rankingsLinks;
@@ -51,6 +60,23 @@ angular.module('websiteApp')
 
       getRankings: function(cat) {
         return rankings;
+      },
+
+      getRanking: function(id) {
+        return ranking;
+      },
+
+      getGeneralRanking: function(cat) {
+        return [{
+          name: 'Marcel Hirscher',
+          points: 256
+        },{
+          name: 'Aksel Lund Svindal',
+          points: 255
+        },{
+          name: 'Ted Ligety',
+          points: 254
+        },];
       },
 
     };

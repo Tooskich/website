@@ -2,5 +2,7 @@
 
 angular.module('websiteApp')
   .controller('RankingsCtrl', function ($scope, $routeParams, Ranking) {
-  	$scope.rankings = Ranking.getRankings($routeParams.type);
+  	var cat = $routeParams.type;
+  	$scope.rankings = Ranking.getRankings(cat);
+  	$scope.generalRanking = Ranking.getGeneralRanking(cat);
   });
