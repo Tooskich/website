@@ -33,6 +33,10 @@ angular.module('websiteApp', [
         templateUrl: 'views/page.html',
         controller: 'PageCtrl'
       })
+      .when('/Result', {
+        templateUrl: 'views/result.html',
+        controller: 'ResultCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
