@@ -42,15 +42,15 @@ angular.module('websiteApp')
           scope.activeCat = id;
         };
 
+        scope.selectSubCat = function(id) {
+          scope.activeSubCat = id;
+        };
+
         scope.revealPills = function(id, cat) {
           var pillsNav = document.getElementById('ts-nav-subbar');
           scope.selectNav(id);
-          if (cat === null) {
-            pillsNav.style.display = 'none';
-            return true;
-          }
           scope.currentCat = cat;
-          pillsNav.style.display = 'block';
+          pillsNav.style.display = cat === null ? 'none': 'block';
         };
       }
     };

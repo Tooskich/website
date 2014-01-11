@@ -4,13 +4,13 @@ angular.module('websiteApp')
   .factory('Blog', function() {
     var blogs = [{
       title: 'Antoine Perrottet',
-      link: 'blog?id=1'
+      link: 'Blog?id=1'
     }, {
       title: 'Axel Béguelin',
-      link: ''
+      link: 'Blog?id=2'
     }, {
       title: 'Un autre Skieur',
-      link: ''
+      link: 'Blog?id=3'
     }, ]
 
     var meaningOfLife = 42;
