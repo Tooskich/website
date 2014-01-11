@@ -25,6 +25,10 @@ angular.module('websiteApp', [
         templateUrl: 'views/rankings.html',
         controller: 'RankingsCtrl'
       })
+      .when('/Blog', {
+        templateUrl: 'views/blog.html',
+        controller: 'BlogCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
