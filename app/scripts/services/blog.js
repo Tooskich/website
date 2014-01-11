@@ -59,5 +59,13 @@ angular.module('websiteApp')
         return 'http://www.arcinfo.ch/multimedia/images/archives_arcinfo//2010.04.09/axel_beguelin.jpg';
       },
 
+      getSponsors: function(id) {
+        return [
+        'http://snow.co.nz/media/uploads/2012/06/logo-atomic.jpg',
+        'http://3.bp.blogspot.com/_8cOgwU34ueU/TH6rXYo9kBI/AAAAAAAABaQ/ueZjXw7bpYk/s1600/fi_main-logo_4c_high.jpg',
+        'http://www.daillon.ch/wordpress/wp-content/uploads/2013/10/1357755346.jpg',
+        ];
+      },
+
     };
   });

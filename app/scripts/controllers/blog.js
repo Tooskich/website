@@ -8,5 +8,6 @@ angular.module('websiteApp')
   	$scope.name = Blog.getName(blogId);
   	$scope.profilePic = Blog.getProfilePic(blogId);
   	$scope.linkResults = Blog.getLinkResults(blogId);
-  	// $scope.sponsors = Blog.getSponsors(blogId);
+  	$scope.blogId = blogId;
+  	$scope.sponsors = Blog.getSponsors(blogId);
   });

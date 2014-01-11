@@ -29,6 +29,10 @@ angular.module('websiteApp', [
         templateUrl: 'views/blog.html',
         controller: 'BlogCtrl'
       })
+      .when('/Blog/Article', {
+        templateUrl: 'views/article.html',
+        controller: 'ArticleCtrl'
+      })
       .when('/Page', {
         templateUrl: 'views/page.html',
         controller: 'PageCtrl'
