@@ -2,15 +2,27 @@
 
 angular.module('websiteApp')
   .factory('Page', function () {
-    // Service logic
-    // ...
+    var pages = [{
+          title: 'Staff',
+          link: ''
+        }, {
+          title: 'Truc',
+          link: ''
+        }, {
+          title: 'Publicité',
+          link: ''
+        }, {
+          title: 'Muche',
+          link: ''
+        }, {
+          title: 'Muche2',
+          link: ''
+        }, ];
 
-    var meaningOfLife = 42;
-
-    // Public API here
     return {
-      someMethod: function () {
-        return meaningOfLife;
-      }
+      getPageLinks: function() {
+        return pages;
+      },
+
     };
   });

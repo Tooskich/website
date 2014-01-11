@@ -17,7 +17,7 @@ angular.module('websiteApp')
 
     // Public API here
     return {
-      getBlogNames: function() {
+      getBlogLinks: function() {
         return blogs;
       },
 

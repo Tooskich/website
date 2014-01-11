@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('websiteApp')
-  .directive('tsNavbar', function(Blog) {
+  .directive('tsNavbar', function(Blog, Page) {
     return {
       templateUrl: 'views/directives/core/navbar.html',
       restrict: 'EACM',
@@ -18,24 +18,9 @@ angular.module('websiteApp')
           link: 'Ranking?type=FIS'
         }, ];
 
-        scope.blogsCat = Blog.getBlogNames();
+        scope.blogsCat = Blog.getBlogLinks();
 
-        scope.pagesCat = [{
-          title: 'Staff',
-          link: ''
-        }, {
-          title: 'Truc',
-          link: ''
-        }, {
-          title: 'Publicité',
-          link: ''
-        }, {
-          title: 'Muche',
-          link: ''
-        }, {
-          title: 'Muche2',
-          link: ''
-        }, ];
+        scope.pagesCat = Page.getPageLinks();
 
 
         scope.selectNav = function(id) {
