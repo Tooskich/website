@@ -1,5 +1,7 @@
 'use strict';
-
+/*
+ * Rankings are only for the general rankings of the WC, EC or FIS.
+ */
 angular.module('websiteApp')
   .factory('Ranking', function() {
     var rankingsLinks = [{
@@ -12,46 +14,6 @@ angular.module('websiteApp')
       title: 'FIS',
       link: 'Rankings?type=FIS'
     }, ];
-
-    var rankings = [{
-      id: 1,
-      date: 1389476529,
-      title: 'GS Adelboden',
-      category: 'WC',
-      genre: 'H'
-    }, {
-      id: 2,
-      date: 1388476529,
-      title: 'SL Adelboden',
-      category: 'WC',
-      genre: 'H'
-    }, {
-      id: 3,
-      date: 1387476529,
-      title: 'GS Alta Badia',
-      category: 'WC',
-      genre: 'F'
-    }, {
-      id: 4,
-      date: 1386476529,
-      title: 'DH Alta Badia',
-      category: 'WC',
-      genre: 'F'
-    }, {
-      id: 5,
-      date: 1385476529,
-      title: 'DH Adelboden',
-      category: 'WC',
-      genre: 'H'
-    }, {
-      id: 6,
-      date: 1384476529,
-      title: 'DH Adelboden',
-      category: 'WC',
-      genre: 'H'
-    }, ];
-
-    var ranking = [];
 
     var leaders = {
       men: [{
@@ -79,14 +41,6 @@ angular.module('websiteApp')
     return {
       getRankingLinks: function() {
         return rankingsLinks;
-      },
-
-      getRankings: function(cat) {
-        return rankings;
-      },
-
-      getRanking: function(id) {
-        return ranking;
       },
 
       getGeneralRanking: function(cat, genre) {

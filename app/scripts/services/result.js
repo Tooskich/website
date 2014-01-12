@@ -1,5 +1,7 @@
 'use strict';
-
+/*
+ * Results are for results from the FIS. Results of races.
+ */
 angular.module('websiteApp')
   .factory('Result', function() {
 
@@ -25,11 +27,24 @@ angular.module('websiteApp')
         ['17', 'Pinturault', '17.00', '17.34'],
         ['18', 'Pinturault', '18.00', '18.34'],
       ],
+      title: 'SL Alta Badia',
+      date: 1388476529,
+      category: 'WC',
+      genre: 'H',
     };
 
     return {
       getResult: function(id) {
         return result;
+      },
+
+      getResultLists: function(category) {
+        var iter,
+          array = [];
+        for (iter = 0; iter < 10; iter++) {
+          array.push(result);
+        }
+        return array;
       },
     };
   });
