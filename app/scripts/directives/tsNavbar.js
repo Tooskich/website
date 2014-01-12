@@ -13,6 +13,7 @@ angular.module('websiteApp')
 
         scope.pagesCat = Page.getPageLinks();
 
+        scope.isCollapsed = true;
 
         scope.selectNav = function(id) {
           scope.activeCat = id;
