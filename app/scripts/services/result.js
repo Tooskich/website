@@ -31,6 +31,7 @@ angular.module('websiteApp')
       date: 1388476529,
       category: 'WC',
       genre: 'H',
+      id: 0,
     };
 
     return {
@@ -41,7 +42,7 @@ angular.module('websiteApp')
       getResultLists: function(category) {
         var iter,
           array = [];
-        for (iter = 0; iter < 10; iter++) {
+        for (iter = 0; iter <= 10; iter++) {
           result.id = iter;
           array.push(result);
         }
