@@ -41,7 +41,7 @@ angular.module('websiteApp')
         return banners.filter(function(el) {
           return el.vertical === 1;
         }).reduce(function(prev, cur) {
-          prev.push(cur.img)
+          prev.push(cur.img);
           return prev;
         }, []);
       },
