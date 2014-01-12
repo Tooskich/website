@@ -11,7 +11,7 @@ angular.module('websiteApp')
     }, {
       title: 'Un autre Skieur',
       link: 'Blog?id=3'
-    }, ]
+    }, ];
 
     var meaningOfLife = 42;
 
