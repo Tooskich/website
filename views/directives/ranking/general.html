@@ -9,7 +9,7 @@
 	<tbody>
 		<tr ng-repeat="rank in generalRanking">
 			<a ng-href="#!/Result?id={{rank.id}}">
-				<td>{{$index}}</td>
+				<td>{{$index + 1}}</td>
 				<td>{{rank.name}}</td>
 				<td>{{rank.points}}</td>
 			</a>
