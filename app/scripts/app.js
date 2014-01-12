@@ -14,7 +14,7 @@ angular.module('websiteApp', [
         controller: 'MainCtrl'
       })
       .when('/Mag', {
-        templateUrl: 'views/Mag.html',
+        templateUrl: 'views/index.html',
         controller: 'MagCtrl'
       })
       .when('/News', {
