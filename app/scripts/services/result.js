@@ -42,6 +42,7 @@ angular.module('websiteApp')
         var iter,
           array = [];
         for (iter = 0; iter < 10; iter++) {
+          result.id = iter;
           array.push(result);
         }
         return array;
