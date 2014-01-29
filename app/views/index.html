@@ -2,7 +2,7 @@
 	<div id="ts-news" class="col-md-6">
 		<div class="col-md-12">
 			
-			<div ts-news-carousel news="randFirstNews" style="height:500px; width:auto;"></div>
+			<div ts-news-carousel news="randFirstNews" style="max-height:500px; width:auto;"></div>
 
 			<div ng-repeat="n in news | orderBy:'date':true">
 				<div ts-news-list news="n"></div>
@@ -36,7 +36,7 @@
 	<script type="text/ng-template" id="news-modal.html" class="col-md-12">
 		<style type="text/css">
 			.modal-dialog {
-				width: 80%;
+				width: 60%;
 			}
 		</style>
 		<div class="modal-header">
