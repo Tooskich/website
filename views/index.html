@@ -2,7 +2,7 @@
 	<div id="ts-news" class="col-md-6">
 		<div class="col-md-12">
 			
-			<div ts-news-carousel="" news="randFirstNews" style="height:500px; width:auto"></div>
+			<div ts-news-carousel="" news="randFirstNews" style="max-height:500px; width:auto"></div>
 
 			<div ng-repeat="n in news | orderBy:'date':true">
 				<div ts-news-list="" news="n"></div>
@@ -31,4 +31,31 @@
 
 
 	<div ts-pub-side=""></div>
+
+
+	<script type="text/ng-template" id="news-modal.html" class="col-md-12">
+		<style type="text/css">
+			.modal-dialog {
+				width: 60%;
+			}
+		</style>
+		<div class="modal-header">
+			<button class="btn btn-primary pull-right" ng-click="close()">Fermer</button>
+			<h3>{{news.title}}</h3>
+		</div>
+		<div class="modal-body">
+
+			<div id="news-text" style="margin-bottom:50px;">
+				<p align="justify" ng-bind-html="news.content"></p>
+				<p align="right">
+					<em>Par {{news.author}}, le {{news.date*1000 | date:'dd/mm/yyyy'}} à {{news.date*1000 | date:'hh:mm'}}</em>
+				</p>
+			</div>
+
+		</div>
+		<div class="modal-footer">
+			<div ts-comments disqusId="{{disqusId}}"></div>
+		</div>
+	</script>
+
 </div>
