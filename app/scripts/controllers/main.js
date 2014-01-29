@@ -17,21 +17,23 @@ angular.module('websiteApp')
 
             var modalInstance = $modal.open({
                 templateUrl: 'news-modal.html',
-                controller: function($scope, $routeParams,
-                    $modalInstance, News) {
+                controller: ['$scope', '$routeParams', '$modalInstance',
+                    'News',
+                    function($scope, $routeParams, $modalInstance, News) {
 
-                    var newsId = parseInt($routeParams.n),
-                        news = News.getNews(newsId);
+                        var newsId = parseInt($routeParams.n),
+                            news = News.getNews(newsId);
 
-                    $scope.news = news;
+                        $scope.news = news;
 
-                    $scope.disqusId = 'News' + newsId;
+                        $scope.disqusId = 'News' + newsId;
 
-                    $scope.close = function() {
-                        $modalInstance.close();
-                    };
+                        $scope.close = function() {
+                            $modalInstance.close();
+                        };
 
-                },
+                    }
+                ],
             });
 
         }
