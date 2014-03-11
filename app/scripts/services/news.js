@@ -2,18 +2,7 @@
 
 angular.module('websiteApp')
     .factory('News', function($http) {
-        var news = [],
-            that = this;
-
-        window.JSON_CALLBACK = function(response) {
-
-            debugger;
-            that.news = response.map(function(el) {
-                var result = el.fields;
-                result.id = el.pk;
-                return result
-            });
-        };
+        var news = [];
 
         $http.get(
             document.api, {
@@ -21,17 +10,22 @@ angular.module('websiteApp')
             }
         )
             .success(function(response) {
-                debugger;
-                that.news = response.map(function(el) {
+                news = response.map(function(el) {
                     var result = el.fields;
                     result.id = el.pk;
                     return result
                 });
             })
-        // .error(function(status, response) {
-        //     debugger;
-        //     alert('Wrong connection with the server...');
-        // });
+            .error(function(status, response) {
+                alert('There was a connection problem with the server.');
+            })
+            .then(function(t) {
+                /*
+                 * Here we'll call the call back that will be defined in the controller, 
+                 so that the data will be available to him.
+                 */
+                console.log(t, news);
+            });
 
 
         // Public API here
