@@ -16,7 +16,7 @@ angular.module('websiteApp')
         };
 
         $http.get(
-            'http://tooski.webfactional.com/api/news/get?callback', {
+            document.api, {
                 cache: 'true'
             }
         )
