@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('websiteApp')
-    .factory('News', function($http) {
+    .factory('News', function($http, Server) {
         var loadNews, processNews, uniqueArray;
         var news = [],
-            newsUrl = document.api + 'news/';
+            newsUrl = Server.ServerUrl + 'news/';
 
         loadNews = function(callback, id) {
             var url = newsUrl + (id ? '?id=' + id : '');
