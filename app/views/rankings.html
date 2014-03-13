@@ -10,7 +10,7 @@
 			</thead>
 			<tbody>
 				<tr ng-repeat="rank in rankings">
-					<td><a ng-href="#!/Result?resultId={{rank.id}}">{{rank.date*1000 | date:'dd/MM/yyyy'}}</a></td>
+					<td><a ng-href="#!/Result?resultId={{rank.id}}">{{rank.date | date:'dd/MM/yyyy'}}</a></td>
 					<td><a ng-href="#!/Result?resultId={{rank.id}}">{{rank.title}}</a></td>
 					<td><a ng-href="#!/Result?resultId={{rank.id}}">{{rank.genre}}</a></td>
 				</tr>
