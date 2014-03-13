@@ -9,7 +9,9 @@ angular.module('websiteApp')
             link: function postLink(scope, element, attrs) {
                 scope.resultsCat = Ranking.getRankingLinks();
 
-                scope.blogsCat = Blog.getBlogLinks();
+                Blog.getBlogLinks(function(links) {
+                    scope.blogsCat = links;
+                });
 
                 Page.getPageLinks(function(links) {
                     scope.pagesCat = links;
