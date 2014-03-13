@@ -26,16 +26,20 @@ angular.module('websiteApp')
                     'News',
                     function($scope, $routeParams, $modalInstance, News) {
 
-                        var newsId = parseInt($routeParams.n),
-                            news = News.getNews(newsId);
+                        var newsId = parseInt($routeParams.n);
+                        News.getNews(function(response) {
 
-                        $scope.news = news;
+                            news = response;
 
-                        $scope.disqusId = 'News' + newsId;
+                            $scope.news = news;
 
-                        $scope.close = function() {
-                            $modalInstance.close();
-                        };
+                            $scope.disqusId = 'News' + newsId;
+
+                            $scope.close = function() {
+                                $modalInstance.close();
+                            };
+
+                        }, newsId);
 
                     }
                 ],
