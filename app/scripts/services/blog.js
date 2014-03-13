@@ -5,7 +5,8 @@ angular.module('websiteApp')
 
         var loadBloggers, loadBlogPosts;
         var blogsUrl = Server.Url + 'blogs/',
-            blogs = [];
+            blogs = [],
+            posts = [];
 
         loadBloggers = function(callback, id) {
             var url = blogsUrl + (id ? '?id=' + id : '');
@@ -45,19 +46,14 @@ angular.module('websiteApp')
                 .success(function(response) {
                     var iter, filter;
                     var processed = Server.processResponse(response);
-                    processed = processed.map(function(el) {
-                        el.ad = el.ad.split('|');
-                        el.sponsors = el.sponsors.split('|');
-                        return el;
-                    });
 
                     for (iter = 0; iter < processed.length; iter++) {
-                        filter = blogs.some(function(el) {
+                        filter = posts.some(function(el) {
                             return JSON.stringify(el) === JSON.stringify(
                                 processed[iter]);
                         });
                         if (!filter) {
-                            blogs.push(processed[iter]);
+                            posts.push(processed[iter]);
                         }
                     }
                     processed = processed.length > 1 ? processed :
@@ -104,26 +100,19 @@ angular.module('websiteApp')
                 }
             },
 
-            getNews: function(id) {
-                return [{
-                    id: 0,
-                    author: 'Séb',
-                    title: 'News n°0',
-                    content: 'Mon super text, avec du html: <img src="http://www.google.ch/logos/doodles/2014/annette-von-droste-hulshoffs-217th-birthday-5701007384248320.2-hp.jpg" /><a href="http://tooski.ch"></a>',
-                    date: 1389390694,
-                }, {
-                    id: 1,
-                    author: 'Séb',
-                    title: 'News n°1',
-                    content: 'Mon super text, avec du html: <img src="http://www.fricktal24.ch/typo3temp/pics/Ski-Aerni_Luca_01_55d138efee.jpg" /><a href="http://tooski.ch"></a>',
-                    date: 1389390695,
-                }, {
-                    id: 2,
-                    author: 'Séb',
-                    title: 'News n°2',
-                    content: 'Mon super text, avec du html: <a href="https://tooski.ch"><img src="http://skiweltcup.tv/wp-content/themes/tvsportnews/images/09-aerni002-klein-swiss-ski.jpg" /></a>',
-                    date: 1389390696,
-                }, ];
+            getNews: function(callback, id) {
+                var getNews;
+                if (posts.length < 1) {
+                    getNews = this.getNews;
+                    loadBlogPosts(function() {
+                        getNews(callback, id);
+                    });
+                }
+                else {
+                    callback(posts.filter(function(el) {
+                        return el.blogId === parseInt(id);
+                    }));
+                }
             },
 
         };
