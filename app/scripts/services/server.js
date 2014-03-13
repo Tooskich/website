@@ -12,7 +12,7 @@ angular.module('websiteApp')
                 result.id = el.pk;
                 result.date = new Date(result.date)
                     .getTime();
-                return result
+                return result;
             });
         };
 
