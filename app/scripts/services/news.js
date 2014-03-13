@@ -43,6 +43,7 @@ angular.module('websiteApp')
 
             getNews: function(callback, id) {
                 var current;
+                debugger;
                 if (id || angular.isNumber(id)) {
                     current = news.filter(function(el) {
                         return el.id === id;
@@ -56,12 +57,11 @@ angular.module('websiteApp')
                 }
                 else {
                     if (news.length > 0) {
-                        return news;
+                        loadNews(callback);
                     }
                     else {
                         loadNews(callback);
                     }
-                    return news;
                 }
             },
 
