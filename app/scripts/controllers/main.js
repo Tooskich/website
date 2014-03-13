@@ -8,9 +8,14 @@ angular.module('websiteApp')
             return o;
         };
 
-        var news = News.getNews();
-        $scope.news = news;
-        $scope.randFirstNews = shuffle(news.slice(0, 5));
+        var news = [];
+        News.getNews(function(response) {
+            news = response;
+
+            $scope.news = news;
+            $scope.randFirstNews = shuffle(news.slice(0, 5));
+        });
+
 
 
         if (parseInt($routeParams.n) || $routeParams.n === '0') {
