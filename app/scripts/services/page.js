@@ -2,15 +2,10 @@
 
 angular.module('websiteApp')
     .factory('Page', function($http, Server) {
-
-        var pages = [];
-
-        /*
-          A page is : id, name, content.
-        */
-
-        var pageUrl = Server.Url + 'pages/';
-        var loadPages, returnPage;
+        /* A page is : id, name, content. */
+        var pageUrl = Server.Url + 'pages/',
+            pages = [];
+        var loadPages;
 
         loadPages = function(callback) {
             $http.get(pageUrl, {
@@ -33,31 +28,14 @@ angular.module('websiteApp')
                 .error(Server.errorHandler);
         };
 
-        returnPage = function(callback, id) {
-            if (pages.length < 1) {
-                loadPages(function() {
-                    returnPage(callback, id);
-                });
-            }
-            else {
-                var page = pages.filter(function(el) {
-                    return el.id === +id;
-                })[0];
-                page = page ? page.content : '';
-                callback(page);
-            }
-        };
-
         return {
             getPageLinks: function(callback) {
+                /* Should return .link and .title for each page.*/
+                var getPageLinks;
                 if (pages.length < 1) {
+                    getPageLinks = this.getPageLinks;
                     loadPages(function(result) {
-                        var test = result.map(function(el) {
-                            el.link = 'Page?id=' + el.id;
-                            el.title = el.name;
-                            return el;
-                        });
-                        callback(test);
+                        getPageLinks(callback);
                     });
                 }
                 else {
@@ -70,7 +48,20 @@ angular.module('websiteApp')
             },
 
             getPage: function(callback, id) {
-                return returnPage(callback, id);
+                var getPage;
+                if (pages.length < 1) {
+                    getPage = this.getPage;
+                    loadPages(function() {
+                        getPage(callback, id);
+                    });
+                }
+                else {
+                    var page = pages.filter(function(el) {
+                        return el.id === +id;
+                    })[0];
+                    page = page ? page.content : '';
+                    callback(page);
+                }
             },
 
         };
