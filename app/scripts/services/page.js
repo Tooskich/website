@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('websiteApp')
-    .factory('Page', function() {
+    .factory('Page', function($http, Server) {
         /*
           A page is : id, name, content.
         */

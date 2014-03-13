@@ -14,7 +14,7 @@ angular.module('websiteApp')
             })
                 .success(function(response) {
                     var iter, filter;
-                    var processed = processNews(response);
+                    var processed = Server.processResponse(response);
                     for (iter = 0; iter < processed.length; iter++) {
                         filter = news.some(function(el) {
                             return JSON.stringify(el) === JSON.stringify(
@@ -36,7 +36,7 @@ angular.module('websiteApp')
         };
 
 
-        processNews = function(response) {
+        /*processNews = function(response) {
             var news = response.map(function(el) {
                 var result = el.fields;
                 result.id = el.pk;
@@ -45,7 +45,7 @@ angular.module('websiteApp')
                 return result
             });
             return news;
-        };
+        };*/
 
         // Public API here
         return {
