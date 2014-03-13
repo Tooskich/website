@@ -3,13 +3,42 @@
 angular.module('websiteApp')
     .factory('Blog', function($http, Server) {
 
-        var loadBloggers;
+        var loadBloggers, loadBlogPosts;
         var blogsUrl = Server.Url + 'blogs/',
             blogs = [];
 
         loadBloggers = function(callback, id) {
             var url = blogsUrl + (id ? '?id=' + id : '');
+            $http.get(url, {
+                cache: 'true'
+            })
+                .success(function(response) {
+                    var iter, filter;
+                    var processed = Server.processResponse(response);
+                    processed = processed.map(function(el) {
+                        el.ad = el.ad.split('|');
+                        el.sponsors = el.sponsors.split('|');
+                        return el;
+                    });
 
+                    for (iter = 0; iter < processed.length; iter++) {
+                        filter = blogs.some(function(el) {
+                            return JSON.stringify(el) === JSON.stringify(
+                                processed[iter]);
+                        });
+                        if (!filter) {
+                            blogs.push(processed[iter]);
+                        }
+                    }
+                    processed = processed.length > 1 ? processed :
+                        processed[0];
+                    callback(processed);
+                })
+                .error(Server.errorHandler);
+        };
+
+        loadBlogPosts = function(callback, id) {
+            var url = blogsUrl + 'posts/';
             $http.get(url, {
                 cache: 'true'
             })
