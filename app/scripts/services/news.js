@@ -13,9 +13,8 @@ angular.module('websiteApp')
                 cache: 'true'
             })
                 .success(function(response) {
-                    debugger;
                     var processed = processNews(response);
-                    news.concat(processed);
+                    news = news.concat(processed);
                     processed = processed.length > 1 ? processed :
                         processed[0];
                     callback(processed);
