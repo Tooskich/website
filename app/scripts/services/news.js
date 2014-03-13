@@ -4,7 +4,7 @@ angular.module('websiteApp')
     .factory('News', function($http, Server) {
         var loadNews, processNews, uniqueArray;
         var news = [],
-            newsUrl = Server.ServerUrl + 'news/';
+            newsUrl = Server.Url + 'news/';
 
         loadNews = function(callback, id) {
             var url = newsUrl + (id ? '?id=' + id : '');
@@ -28,11 +28,7 @@ angular.module('websiteApp')
                         processed[0];
                     callback(processed);
                 })
-                .error(function(status, response) {
-                    alert(
-                        'There was a connection problem with the server.'
-                    );
-                });
+                .error(Server.errorHandler);
         };
 
 

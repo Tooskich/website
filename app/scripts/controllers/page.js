@@ -1,6 +1,8 @@
 'use strict';
 
 angular.module('websiteApp')
-  .controller('PageCtrl', function ($scope,$routeParams, Page) {
-    $scope.page = Page.getPage($routeParams.id);
-  });
+    .controller('PageCtrl', function($scope, $routeParams, Page) {
+        Page.getPage(function(content) {
+            $scope.page = content;
+        }, $routeParams.id);
+    });

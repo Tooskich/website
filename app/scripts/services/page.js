@@ -2,34 +2,75 @@
 
 angular.module('websiteApp')
     .factory('Page', function($http, Server) {
+
+        var pages = [];
+
         /*
           A page is : id, name, content.
         */
-        var pages = [{
-            title: 'Staff',
-            link: 'Page?id=1'
-        }, {
-            title: 'Truc',
-            link: 'Page?id=2'
-        }, {
-            title: 'Publicité',
-            link: 'Page?id=3'
-        }, {
-            title: 'Muche',
-            link: 'Page?id=4'
-        }, {
-            title: 'Muche2',
-            link: 'Page?id=5'
-        }, ];
+
+        var pageUrl = Server.Url + 'pages/';
+        var loadPages, returnPage;
+
+        loadPages = function(callback) {
+            $http.get(pageUrl, {
+                cache: 'true'
+            })
+                .success(function(response) {
+                    var iter, filter;
+                    var processed = Server.processResponse(response);
+                    for (iter = 0; iter < processed.length; iter++) {
+                        filter = pages.some(function(el) {
+                            return JSON.stringify(el) === JSON.stringify(
+                                processed[iter]);
+                        });
+                        if (!filter) {
+                            pages.push(processed[iter]);
+                        }
+                    }
+                    callback(pages);
+                })
+                .error(Server.errorHandler);
+        };
+
+        returnPage = function(callback, id) {
+            if (pages.length < 1) {
+                loadPages(function() {
+                    returnPage(callback, id);
+                });
+            }
+            else {
+                var page = pages.filter(function(el) {
+                    return el.id === +id;
+                })[0];
+                page = page ? page.content : '';
+                callback(page);
+            }
+        };
 
         return {
-            getPageLinks: function() {
-                return pages;
+            getPageLinks: function(callback) {
+                if (pages.length < 1) {
+                    loadPages(function(result) {
+                        var test = result.map(function(el) {
+                            el.link = 'Page?id=' + el.id;
+                            el.title = el.name;
+                            return el;
+                        });
+                        callback(test);
+                    });
+                }
+                else {
+                    callback(pages.map(function(el) {
+                        el.link = 'Page?id=' + el.id;
+                        el.title = el.name;
+                        return el;
+                    }));
+                }
             },
 
-            getPage: function(id) {
-                return '<p>Salut comment tu fais pour manger du <b>thon</b> id: ' +
-                    id + ' ?</p>';
+            getPage: function(callback, id) {
+                return returnPage(callback, id);
             },
 
         };
