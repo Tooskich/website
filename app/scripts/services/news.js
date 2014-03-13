@@ -2,7 +2,7 @@
 
 angular.module('websiteApp')
     .factory('News', function($http) {
-        var loadNews, processNews;
+        var loadNews, processNews, uniqueArray;
         var news = [],
             newsUrl = document.api + 'news/';
 
@@ -13,8 +13,17 @@ angular.module('websiteApp')
                 cache: 'true'
             })
                 .success(function(response) {
+                    var iter, filter;
                     var processed = processNews(response);
-                    news = news.concat(processed);
+                    for (iter = 0; iter < processed.length; iter++) {
+                        filter = news.some(function(el) {
+                            return JSON.stringify(el) === JSON.stringify(
+                                processed[iter]);
+                        });
+                        if (!filter) {
+                            news.push(processed[iter]);
+                        }
+                    }
                     processed = processed.length > 1 ? processed :
                         processed[0];
                     callback(processed);
@@ -43,7 +52,6 @@ angular.module('websiteApp')
 
             getNews: function(callback, id) {
                 var current;
-                debugger;
                 if (id || angular.isNumber(id)) {
                     current = news.filter(function(el) {
                         return el.id === id;
@@ -57,7 +65,7 @@ angular.module('websiteApp')
                 }
                 else {
                     if (news.length > 0) {
-                        loadNews(callback);
+                        callback(news);
                     }
                     else {
                         loadNews(callback);
@@ -67,11 +75,11 @@ angular.module('websiteApp')
 
             getMagNews: function(callback) {
                 var mag;
-                if (news.length > 1) {
+                if (news.length > 0) {
                     mag = news.filter(function(cur) {
                         return cur.mag === 1;
                     });
-                    mag = mag ? mag : [];
+                    mag = mag.length > 0 ? mag : [];
                     callback(mag);
                 }
                 else {
