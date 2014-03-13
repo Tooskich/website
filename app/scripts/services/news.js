@@ -65,10 +65,24 @@ angular.module('websiteApp')
                 }
             },
 
-            getMagNews: function() {
-                return news.filter(function(cur) {
-                    return cur.mag === 1;
-                });
+            getMagNews: function(callback) {
+                var mag;
+                if (news.length > 1) {
+                    mag = news.filter(function(cur) {
+                        return cur.mag === 1;
+                    });
+                    mag = mag ? mag : [];
+                    callback(mag);
+                }
+                else {
+                    loadNews(function(response) {
+                        mag = news.filter(function(cur) {
+                            return cur.mag === 1;
+                        });
+                        mag = mag ? mag : [];
+                        callback(mag);
+                    });
+                }
             },
         };
     });
