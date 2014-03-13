@@ -31,18 +31,6 @@ angular.module('websiteApp')
                 .error(Server.errorHandler);
         };
 
-
-        /*processNews = function(response) {
-            var news = response.map(function(el) {
-                var result = el.fields;
-                result.id = el.pk;
-                result.date = new Date(result.date)
-                    .getTime();
-                return result
-            });
-            return news;
-        };*/
-
         // Public API here
         return {
 
