@@ -48,7 +48,7 @@
 			<div id="news-text" style="margin-bottom:50px;">
 				<p align="justify" ng-bind-html="news.content"></p>
 				<p align="right">
-					<em>Par {{news.author}}, le {{news.date*1000 | date:'dd/mm/yyyy'}} à {{news.date*1000 | date:'hh:mm'}}</em>
+					<em>Par {{news.author}}, le {{news.date | date:'dd/MM/yyyy'}} à {{news.date | date:'hh:mm'}}</em>
 				</p>
 			</div>
 
