@@ -5,17 +5,29 @@ $tooski-color: #00A0E0;
     border:solid black 1px;
 }
 /* End of testing*/
-.menu-links {
+.nav-links {
     text-decoration:none;
     border-right:solid $tooski-color 2px;
     margin-right:3px;
     color:black;
+    font-weight:bold;
 
     &:hover {
         text-decoration:none;
         color: $tooski-color;
     }
 }
+
+.nav-social {
+    img {
+        width:18px;
+    }
+    input {
+        width:80px;
+        border:solid white 0px;
+    }
+}
+
 .no-border {
     border:solid white 0px;
 }
