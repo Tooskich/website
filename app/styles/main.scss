@@ -1,10 +1,23 @@
 $blue: #00A0E0;
 $red: #F30907;
+$gray: #d2d2d2;
 
 @font-face {
     font-family: Sansation;
     src: url('Sansation_Regular.ttf');
 }
+@mixin border-radius($radius) {
+ -webkit-border-radius: $radius;
+ -moz-border-radius: $radius;
+ -ms-border-radius: $radius;
+ border-radius: $radius;
+}
+@mixin box-gradient($from, $to) {
+  background-color: $from;
+  background-image: -webkit-linear-gradient(top, $from, $to);
+  background-image: linear-gradient(to bottom, $from, $to);
+}
+
 p, body, div, span, a {
     font-family: Sansation;
 }
@@ -62,6 +75,15 @@ a {
     }
 }
 
+.nav-ad {
+    width:100%;
+    background-color:darken($blue, 30%);
+}
+
+.end-footer{
+    background-color:darken($blue, 30%);
+}
+
 .icon {
     max-height:20px;
 }
@@ -71,9 +93,9 @@ a {
 }
 
 div.red {
-    font-weight:bold;
-    color:white;
-    background-color:$red;
+    font-weight: bold;
+    color: white;
+    @include box-gradient($red, darken($red, 10%))
 }
 span.red {
     color:$red;
@@ -84,7 +106,7 @@ span.red {
 div.blue {
     font-weight:bold;
     color:white;
-    background-color:$blue;
+    @include box-gradient($blue, darken($blue, 10%))
 }
 span.blue {
     color:$blue;
