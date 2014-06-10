@@ -1,9 +1,24 @@
+$tooski-color: #00A0E0;
+
 /* For testing purposes only*/
 .bordered {
     border:solid black 1px;
 }
 /* End of testing*/
+.menu-links {
+    text-decoration:none;
+    border-right:solid $tooski-color 2px;
+    margin-right:3px;
+    color:black;
 
+    &:hover {
+        text-decoration:none;
+        color: $tooski-color;
+    }
+}
+.no-border {
+    border:solid white 0px;
+}
 .white {
     color:white;
     text-shadow: 2px 2px #000000;
