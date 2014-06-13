@@ -6,7 +6,6 @@ angular.module('websiteApp')
             templateUrl: 'views/directives/core/widgetBar.html',
             restrict: 'EACM',
             link: function postLink(scope, element, attrs) {
-                scope.genRanking = Ranking.getGeneralRanking();
 
                 Widget.get(function(data) {
                     scope.widgetContent = data;
@@ -14,6 +13,19 @@ angular.module('websiteApp')
 
                 Pub.getSquareBanner(function(square) {
                     scope.ads = square.slice(0, 2);
+                });
+
+                scope.$watch('menRanking', function() {
+                    if (scope.menRanking) {
+                        scope.genRanking = Ranking.getGeneralRanking(
+                            null,
+                            'H');
+                    }
+                    else {
+                        scope.genRanking = Ranking.getGeneralRanking(
+                            null,
+                            'F');
+                    }
                 });
             }
         };

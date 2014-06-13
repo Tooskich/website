@@ -34,6 +34,11 @@ a {
         text-decoration:none;
     }
 }
+
+.clickable {
+    cursor: pointer;
+}
+
 .nav-links {
     text-decoration:none;
     border-right:solid $blue 2px;
