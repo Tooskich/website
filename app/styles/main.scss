@@ -52,6 +52,19 @@ a {
     }
 }
 
+.sub-nav-links {
+    text-decoration:none;
+    border-right:solid white 2px;
+    padding-right:5px;
+    padding-left:5px;
+    color:white;
+    font-weight:bold;
+
+    &:hover {
+        color: white;
+    }
+}
+
 .nav-social {
     img {
         width:18px;
@@ -105,7 +118,7 @@ div.red {
 div.blue {
     font-weight:bold;
     color:white;
-    @include box-gradient($blue, darken($blue, 10%))
+    @include box-gradient($blue, $blue)
 }
 .blue {
     color:$blue;

@@ -7,14 +7,21 @@ angular.module('websiteApp')
             restrict: 'EACM',
             replace: true,
             link: function postLink(scope, element, attrs) {
-                scope.resultsCat = Ranking.getRankingLinks();
+
+                scope.resultsCat = {};
+                scope.resultsCat.cat = Ranking.getRankingLinks();
+                scope.resultsCat.name = 'Résultats';
 
                 Blog.getBlogLinks(function(links) {
-                    scope.blogsCat = links;
+                    scope.blogsCat = {};
+                    scope.blogsCat.cat = links;
+                    scope.blogsCat.name = 'Blogs';
                 });
 
                 Page.getPageLinks(function(links) {
-                    scope.pagesCat = links;
+                    scope.pagesCat = {};
+                    scope.pagesCat.cat = links;
+                    scope.pagesCat.name = 'Tooski';
                 });
 
                 scope.isCollapsed = true;

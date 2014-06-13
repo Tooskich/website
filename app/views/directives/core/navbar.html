@@ -5,8 +5,8 @@
 	<div class="container">
 
 		<div class="col-md-12 row" style="margin-right:0px;padding-right:0px;">
-			<div class="col-md-4" style="text-align:left;" style="margin-right:0px;padding-right:0px;">
-			<a ng-href="/">
+			<div class="col-md-4" style="text-align:left; padding:0px;" style="margin-right:0px;padding-right:0px;">
+				<a ng-href="/">
 					<img src="images/site/tooski.png" style="height:75px;" />
 				</a>
 			</div>
@@ -34,10 +34,10 @@
 					<a href="#!/Mag" class="nav-links">
 						Point de vue
 					</a>
-					<a href="#!/Rankings" class="nav-links">
+					<a ng-click="revealPills(3, resultsCat);" class="nav-links clickable">
 						Résultats
 					</a>
-					<a href="#!/Blogs" class="nav-links">
+					<a ng-click="revealPills(4, blogsCat);" class="nav-links clickable">
 						Blogs
 					</a>
 					<a href="#!/Skiclubs" class="nav-links">
@@ -46,13 +46,35 @@
 					<a href="#!/Shop" class="nav-links">
 						Boutique
 					</a>
-					<a href="#!/Pages" class="nav-links no-border">
+					<a ng-click="revealPills(5, pagesCat);" class="nav-links no-border clickable">
 						Tooski
 					</a>
 				</div>
 			</div>
 		</div>
 	</div>
+
+	<div id="ts-nav-subbar" class="blue" style="display:none;margin-bottom:5px;">
+		<div class="container">
+			<div class=" col-md-12 row" style="margin-top:5px;margin-bottom:5px;">
+				<strong class="white">{{currentCat.name | uppercase}}</strong>
+				<div class="pull-right">
+					<span ng-repeat="(index, cat) in currentCat.cat">
+						<a ng-click="selectSubCat(cat.link)" ng-href="#!/{{cat.link}}" class="sub-nav-links {{{true: 'no-border', false: ''}[index + 1 == currentCat.cat.length]}}">
+							{{cat.title}}
+						</a>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+<!-- 	<div class="container" id="ts-nav-subbar" style="display:none;">
+		<ul class="nav nav-pills well well-sm" id="ts-nav-subbar-list">
+			<li class="{{{true: 'active', false: ''}[activeSubCat == cat.link]}}" ng-repeat="cat in currentCat"><a ng-click="selectSubCat(cat.link)" ng-href="#!/{{cat.link}}" style="padding:3px;">{{cat.title}}</a></li>
+		</ul>
+	</div> -->
 
 </div>
 
