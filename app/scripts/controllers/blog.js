@@ -9,6 +9,13 @@ angular.module('websiteApp')
         }, blogId);
 
         Blog.getBlogger(function(blogger) {
+            blogger.profilePic = blogger.profilePic ||
+                'images/site/profile.png';
+            blogger.sponsors = blogger.sponsors[0] ? blogger.sponsors :
+                ['images/site/tooski.png',
+                'http://tooski.ch/assets/images/pub/cbservice.jpg',
+                'http://www.tooski.ch/assets/uploads/files/Angulation.png'
+            ];
             $scope.blogger = blogger;
         }, blogId);
     });
