@@ -3,12 +3,12 @@
 </div>
 <div class="row">
 	<div class="col-md-8">
-		<div class="col-md-12 red">
+		<div class="col-md-12 red" style="margin-bottom:10px;">
 			News
 			<img src="images/icons/megaphone-icon.png" class="pull-right icon" />
 		</div>
-		<div class="col-md-12">
-			<div class="col-md-6" style="padding:10px;" ng-repeat="n in news">
+		<div>
+			<div class="col-md-6" style="padding:0px;padding-right:10px; margin-bottom:20px;" ng-repeat="n in news">
 				<img class="media-object" ng-src="{{n.content | findImage}}" alt="{{n.title}}" style="width:100%;height:140px;" />
 				<p style="text-align:justify;"><strong>
 					<span class="red">{{n.date|date:'dd/MM/yyyy'}}//</span>
