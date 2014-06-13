@@ -16,6 +16,9 @@ angular.module('websiteApp')
                 'http://tooski.ch/assets/images/pub/cbservice.jpg',
                 'http://www.tooski.ch/assets/uploads/files/Angulation.png'
             ];
+            blogger.wallPic = blogger.wallPic ||
+                'http://www.team-schroders.ch/uploads/media/header_img_1d527b.jpg' ||
+                'http://pics.ricardostatic.ch/2_728107126_Big/autogramme/loic-meillard-orig-ak.jpg';
             $scope.blogger = blogger;
         }, blogId);
     });

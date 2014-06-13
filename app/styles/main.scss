@@ -139,7 +139,8 @@ div.blue {
     }
 }
 .news-title {
-    color: darken($gray, 35%);
+    color: black;
+    font-weight:bolder;
     &:hover {
         text-decoration:none;
     }

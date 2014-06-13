@@ -1,11 +1,28 @@
 <div class="row cold-md-12">
-	<div class="col-md-9">
+	<!-- <div class="col-md-9">
 		<h1 align="center">{{blogger.name}}</h1>
 		<div ng-repeat="n in news | orderBy:'date':true">
 			<h2>
 				{{n.title}} <small> le {{n.date|date:'dd/MM/yyyy'}}</small>
 			</h2>
 			<p ng-bind-html="n.content"></p>
+		</div>
+	</div> -->
+
+	<div class="col-md-9">
+		<img src="{{blogger.wallPic}}" style="width:100%;margin-bottom:20px;" alt="{{blogger.name}}" />
+		<div ng-repeat="n in news | orderBy:'date':true" style="margin-bottom:30px;">
+			<div class="row">
+				<div class="col-md-1" style="margin:0px;padding:0px;">
+					<img src="images/icons/article.png" style="height:25px;margin-top:10px;" />
+				</div>
+				<div class="col-md-11">
+					<h4 class="news-title col-md-12">{{n.title}}</h4>
+				</div>
+			</div>
+			<div class="col-md-11 col-md-offset-1" style="text-align:justify;">
+				<p ng-bind-html="n.content"></p>
+			</div>
 		</div>
 	</div>
 
