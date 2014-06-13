@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('websiteApp')
-    .directive('tsNavbar', function(Blog, Page, Ranking) {
+    .directive('tsNavbar', function($window, Blog, Page, Ranking) {
         return {
             templateUrl: 'views/directives/core/navbar.html',
             restrict: 'EACM',
@@ -25,6 +25,16 @@ angular.module('websiteApp')
                 });
 
                 scope.isCollapsed = true;
+
+                scope.resetSubMenu = function(name) {
+                    scope.revealPills(null, {
+                        cat: [{
+                            link: '',
+                            title: '<img src="images/icons/back-arrow.png" style="max-height:22px;margin:0px;padding:0pxx;" ng-click="$window.history.back()" />',
+                        }],
+                        name: name,
+                    });
+                };
 
                 scope.selectNav = function(id) {
                     scope.activeCat = id;

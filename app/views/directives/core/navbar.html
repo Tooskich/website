@@ -28,10 +28,10 @@
 					<input type="text" placeholder="Recherche" />
 				</div>
 				<div class="col-md-12 row" style="margin-top:15px;margin-right:0px;padding-right:0px;padding-bottom:10px;">
-					<a href="#!/" class="nav-links">
+					<a href="#!/" class="nav-links" ng-click="resetSubMenu('Acutalité')">
 						Actu
 					</a>
-					<a href="#!/Mag" class="nav-links">
+					<a href="#!/Mag" class="nav-links" ng-click="resetSubMenu('Point de vue')">
 						Point de vue
 					</a>
 					<a ng-click="revealPills(3, resultsCat);" class="nav-links clickable">
@@ -40,10 +40,10 @@
 					<a ng-click="revealPills(4, blogsCat);" class="nav-links clickable">
 						Blogs
 					</a>
-					<a href="#!/Skiclubs" class="nav-links">
+					<a href="#!/Skiclubs" class="nav-links" ng-click="resetSubMenu('Ski-Clubs')">
 						Ski-clubs
 					</a>
-					<a href="#!/Shop" class="nav-links">
+					<a href="#!/Shop" class="nav-links" ng-click="resetSubMenu('Shop')">
 						Boutique
 					</a>
 					<a ng-click="revealPills(5, pagesCat);" class="nav-links no-border clickable">
@@ -61,20 +61,13 @@
 				<div class="pull-right">
 					<span ng-repeat="(index, cat) in currentCat.cat">
 						<a ng-click="selectSubCat(cat.link)" ng-href="#!/{{cat.link}}" class="sub-nav-links {{{true: 'no-border', false: ''}[index + 1 == currentCat.cat.length]}}">
-							{{cat.title}}
+						<span ng-bind-html-unsafe="cat.title"></span>
 						</a>
 					</span>
 				</div>
 			</div>
 		</div>
 	</div>
-
-
-<!-- 	<div class="container" id="ts-nav-subbar" style="display:none;">
-		<ul class="nav nav-pills well well-sm" id="ts-nav-subbar-list">
-			<li class="{{{true: 'active', false: ''}[activeSubCat == cat.link]}}" ng-repeat="cat in currentCat"><a ng-click="selectSubCat(cat.link)" ng-href="#!/{{cat.link}}" style="padding:3px;">{{cat.title}}</a></li>
-		</ul>
-	</div> -->
 
 </div>
 
