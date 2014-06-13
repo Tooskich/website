@@ -77,7 +77,6 @@ angular.module('websiteApp')
                     var blogger = blogs.filter(function(el) {
                         return el.id === parseInt(id);
                     });
-                    debugger;
                     blogger = blogger[0] ? blogger[0] : {};
                     callback(blogger);
                 }
