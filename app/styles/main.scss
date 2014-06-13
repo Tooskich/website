@@ -18,8 +18,12 @@ $gray: #d2d2d2;
   background-image: linear-gradient(to bottom, $from, $to);
 }
 
-p, body, div, span, a {
+body, div, span, a {
     font-family: Sansation;
+}
+
+p {
+    font-family:Arial, Sans-serif;
 }
 
 /* For testing purposes only*/
