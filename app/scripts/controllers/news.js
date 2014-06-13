@@ -2,7 +2,9 @@
 
 angular.module('websiteApp')
     .controller('NewsCtrl', function($scope, $routeParams, News) {
-        var newsId = $routeParams.id;
-        $scope.news = News.getNews(newsId);
+        var newsId = $routeParams.n;
+        News.getNews(function(news) {
+            $scope.news = news;
+        }, newsId);
         $scope.disqusId = 'News' + newsId;
     });

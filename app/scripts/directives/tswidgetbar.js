@@ -18,13 +18,13 @@ angular.module('websiteApp')
                 scope.$watch('menRanking', function() {
                     if (scope.menRanking) {
                         scope.genRanking = Ranking.getGeneralRanking(
-                            null,
-                            'H');
+                            null, 'H')
+                            .slice(0, 5);
                     }
                     else {
                         scope.genRanking = Ranking.getGeneralRanking(
-                            null,
-                            'F');
+                            null, 'F')
+                            .slice(0, 5);
                     }
                 });
             }

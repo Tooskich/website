@@ -1,5 +1,5 @@
-$blue: #00A0E0;
-$red: #F30907;
+$blue: #219FD1;
+$red: #FF0000;
 $gray: #d2d2d2;
 
 @font-face {
@@ -102,19 +102,31 @@ div.red {
     color: white;
     @include box-gradient($red, darken($red, 10%))
 }
-span.red {
-    color:$red;
-    &:hover {
-        text-decoration:none;
-    }
-}
 div.blue {
     font-weight:bold;
     color:white;
     @include box-gradient($blue, darken($blue, 10%))
 }
-span.blue {
+.blue {
     color:$blue;
+    &:hover {
+        text-decoration:none;
+    }
+}
+.red {
+    color:$red;
+    &:hover {
+        text-decoration:none;
+    }
+}
+.gray {
+    color:$gray;
+    &:hover {
+        text-decoration:none;
+    }
+}
+.news-title {
+    color: darken($gray, 35%);
     &:hover {
         text-decoration:none;
     }
