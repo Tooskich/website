@@ -8,6 +8,7 @@
 			<p ng-bind-html="n.content"></p>
 		</div>
 	</div>
+
 	<div class="col-md-3" style="padding:0px;border:solid lightgray 1px;">
 		<div class="col-md-12" style="margin-bottom:20px;">
 			<div class="row red" style="margin-bottom:8px;padding-left:5px;">
@@ -23,11 +24,21 @@
 
 		<div class="col-md-12" style="margin-bottom:20px;" ng-init="menRanking = 1">
 			<div class="row red" style="margin-bottom:8px;padding-left:5px;">
+				Résultats
+				<img src="images/icons/ski-icon.png" class="pull-right icon" />
+			</div>
+			<div style="text-align:center;">
+				<a href="{{blogger.linkResults}}" class="btn btn-primary btn-large" target="_blank">Voir mes derniers résultats</a>
+			</div>
+		</div>
+
+		<div class="col-md-12" style="margin-bottom:20px;" ng-init="menRanking = 1">
+			<div class="row red" style="margin-bottom:8px;padding-left:5px;">
 				Ses sponsors
 				<img src="images/icons/sponsor-icon.png" class="pull-right icon" />
 			</div>
 			<img ng-repeat="sponsor in blogger.sponsors" src="{{sponsor}}" style="width:100%;margin-bottom:20px;" />
-
 		</div>
+
 	</div>
 </div>
