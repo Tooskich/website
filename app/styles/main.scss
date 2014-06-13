@@ -100,11 +100,14 @@ a {
 
 .nav-ad {
     width:100%;
-    background-color:darken($blue, 30%);
+    background-color: $darkBlue;
 }
 
 .end-footer{
-    background-color:darken($blue, 30%);
+    background-color: $darkBlue;
+    background-image: url("/images/site/montagne-footer.jpg");
+    background-repeat: repeat-x;
+    background-position: bottom;
 }
 
 .icon {
