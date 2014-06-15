@@ -7,6 +7,7 @@ angular
         'ngSanitize',
         'ui.bootstrap',
         'ngDisqus',
+        'google-maps',
     ])
     .config(function($routeProvider, $locationProvider) {
         $routeProvider
@@ -39,8 +40,8 @@ angular
                 controller: 'ResultCtrl'
             })
             .when('/Skiclubs', {
-              templateUrl: 'views/skiclubs.html',
-              controller: 'SkiclubsCtrl'
+                templateUrl: 'views/skiclubs.html',
+                controller: 'SkiclubsCtrl'
             })
             .otherwise({
                 redirectTo: '/'
