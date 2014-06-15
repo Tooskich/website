@@ -1,24 +1,25 @@
-<div class="col-md-12">
+<div class="row">
     <div class="col-md-8">
-        <h1>Ski-clubs</h1>http://angular-google-maps.org/use -> follow this one, rmeove the other one and do the install properly.
-        <google-map center="map.center" zoom="map.zoom"></google-map>
-        <p>
-            asdf asdf asd fasd fasd fasdfasdfasdfasdfasdf adsf asdfadsfa s.fasdfdasfadsas fasd.f asdfafasdf asdfasdf . asdf asdf asdf asdf asdf asdf adsf adf. asdf asdf asdfa sdf asdf . asdf asdf asdfa sdfasdf asdfdas . asdf asdf asd fadsfadfs.
-        </p>
-        <p>
-            asdf asdf asd fasd fasd fasdfasdfasdfasdfasdf adsf asdfadsfa s.fasdfdasfadsas fasd.f asdfafasdf asdfasdf . asdf asdf asdf asdf asdf asdf adsf adf. asdf asdf asdfa sdf asdf . asdf asdf asdfa sdfasdf asdfdas . asdf asdf asd fadsfadfs.
-        </p>
-        <p>
-            asdf asdf asd fasd fasd fasdfasdfasdfasdfasdf adsf asdfadsfa s.fasdfdasfadsas fasd.f asdfafasdf asdfasdf . asdf asdf asdf asdf asdf asdf adsf adf. asdf asdf asdfa sdf asdf . asdf asdf asdfa sdfasdf asdfdas . asdf asdf asd fadsfadfs.
-        </p>
-        <p>
-            asdf asdf asd fasd fasd fasdfasdfasdfasdfasdf adsf asdfadsfa s.fasdfdasfadsas fasd.f asdfafasdf asdfasdf . asdf asdf asdf asdf asdf asdf adsf adf. asdf asdf asdfa sdf asdf . asdf asdf asdfa sdfasdf asdfdas . asdf asdf asd fadsfadfs.
-        </p>
+        <google-map center="map.center" zoom="map.zoom">
+            <markers models="skiclubs" labelContent="'title'" coords="'self'" click="markerClick">
+            </markers>
+        </google-map>
+        <div>
+            <h4>
+                <strong>Name:</strong>
+                {{scSelected.title}}
+            </h4>
+            <h4>
+                <strong>Longitude:</strong>
+                {{scSelected.longitude}}
+            </h4>
+            <h4>
+                <strong>Latitude:</strong>
+                {{scSelected.latitude}}
+            </h4>
+        </div>
     </div>
     <div class="col-md-4">
         <div ts-widget-bar></div>
     </div>
-    <style type="text/css">
-    .angular-google-map-container { height: 400px; }
-    </style>
 </div>

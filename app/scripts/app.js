@@ -43,6 +43,10 @@ angular
                 templateUrl: 'views/skiclubs.html',
                 controller: 'SkiclubsCtrl'
             })
+            .when('/Shop', {
+              templateUrl: 'views/shop.html',
+              controller: 'ShopCtrl'
+            })
             .otherwise({
                 redirectTo: '/'
             });

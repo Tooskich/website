@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('websiteApp')
-    .controller('SkiclubsCtrl', function($scope) {
+    .controller('SkiclubsCtrl', function($scope, Skiclubs) {
         var latitude = 46.3514,
             longitude = 7.1581,
-            setMapCenter;
+            setMapCenter, setSelectedSkiClub;
 
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position) {
@@ -21,6 +21,13 @@ angular.module('websiteApp')
             };
         };
 
+        setSelectedSkiClub = function(sc) {
+            $scope.scSelected = sc;
+        };
+
+        Skiclubs.get(function(data) {
+            $scope.skiclubs = data;
+        });
 
         $scope.map = {
             center: {
@@ -28,5 +35,11 @@ angular.module('websiteApp')
                 longitude: longitude,
             },
             zoom: 8,
+        };
+
+        $scope.markerClick = function($markerModel) {
+            var temp = $markerModel;
+            debugger;
+            setSelectedSkiClub(temp);
         };
     });
