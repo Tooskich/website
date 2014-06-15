@@ -4,7 +4,7 @@ angular.module('websiteApp')
     .controller('SkiclubsCtrl', function($scope, Skiclubs) {
         var latitude = 46.3514,
             longitude = 7.1581,
-            setMapCenter, setSelectedSkiClub;
+            setMapCenter;
 
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position) {
@@ -19,10 +19,6 @@ angular.module('websiteApp')
                 latitude: latitude,
                 longitude: longitude,
             };
-        };
-
-        setSelectedSkiClub = function(sc) {
-            $scope.scSelected = sc;
         };
 
         Skiclubs.get(function(data) {
@@ -40,6 +36,5 @@ angular.module('websiteApp')
         $scope.markerClick = function($markerModel) {
             var temp = $markerModel;
             debugger;
-            setSelectedSkiClub(temp);
         };
     });

@@ -1,10 +1,7 @@
 'use strict';
 
 angular.module('websiteApp')
-  .controller('ShopCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+    .controller('ShopCtrl', function($scope) {
+        jQuery("#shop-content *")
+            .hide();
+    });
