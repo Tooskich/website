@@ -4,7 +4,8 @@ angular.module('websiteApp')
     .service('Server', function Server() {
         // AngularJS will instantiate a singleton by calling "new" on this function
 
-        this.Url = 'http://tooski.webfactional.com/api/';
+        // this.Url = 'http://tooski.webfactional.com/api/';
+        this.Url = 'http://127.0.0.1:8000/';
 
         this.processResponse = function(response) {
             return response.map(function(el) {
