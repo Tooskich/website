@@ -23,7 +23,5 @@ angular.module('websiteApp')
             id = input.substr(input.lastIndexOf('/'));
             return start + 'w_' + width + ',h_' + height +
                 ',c_thumb,g_face' + id;
-
-
         };
     });

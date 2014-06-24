@@ -11,10 +11,10 @@ angular.module('websiteApp')
         var news = [];
         News.getNews(function(response) {
             news = response;
-
+            debugger;
             $scope.news = news;
             $scope.randFirstNews = shuffle(news.slice(0, 5));
-        });
+        }, null, 1);
 
 
 

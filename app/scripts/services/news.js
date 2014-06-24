@@ -4,7 +4,8 @@ angular.module('websiteApp')
     .factory('News', function($http, Server) {
         var loadNews, processNews, uniqueArray;
         var news = [],
-            newsUrl = Server.Url + 'news/';
+            newsUrl = Server.Url + 'news/',
+            newsApi = Server.Url + 'apiv1/news/';
 
         loadNews = function(callback, id) {
             var url = newsUrl + (id ? '?id=' + id : '');
@@ -34,27 +35,15 @@ angular.module('websiteApp')
         // Public API here
         return {
 
-            getNews: function(callback, id) {
-                var current;
-                if (id || angular.isNumber(id)) {
-                    current = news.filter(function(el) {
-                        return el.id === id;
-                    })[0];
-                    if (typeof current === 'undefined') {
-                        loadNews(callback, id);
-                    }
-                    else {
-                        callback(current);
-                    }
-                }
-                else {
-                    if (news.length > 0) {
-                        callback(news);
-                    }
-                    else {
-                        loadNews(callback);
-                    }
-                }
+            getNews: function(callback, id, page) {
+                var url = id ? newsApi + id + '/' : newsApi;
+                url = page ? url + '?page=' + page : url;
+                $http.get(url)
+                    .then(function(res) {
+                        var data = res.data.results ? res.data.results :
+                            res.data;
+                        callback(data);
+                    }, Server.errorHandler);
             },
 
             getMagNews: function(callback) {
