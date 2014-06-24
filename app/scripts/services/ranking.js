@@ -3,7 +3,35 @@
  * Rankings are only for the general rankings of the WC, EC or FIS.
  */
 angular.module('websiteApp')
-    .factory('Ranking', function() {
+    .factory('Ranking', function($http) {
+        var rankFile = '/ranking.json',
+            leaders;
+        $http.get(rankFile)
+            .then(function(file) {
+                var men = file.data[0].men,
+                    women = file.data[0].women;
+                men = men.map(function(el) {
+                    return {
+                        name: el[1],
+                        points: el[3],
+                        country: el[2],
+                        place: el[0],
+                    };
+                });
+                women = women.map(function(el) {
+                    return {
+                        name: el[1],
+                        points: el[3],
+                        country: el[2],
+                        place: el[0],
+                    };
+                });
+                leaders = {
+                    men: men,
+                    women: women,
+                };
+            }, Server.errorHandler);
+
         var rankingsLinks = [{
             title: 'Coupe du Monde',
             link: 'Rankings?type=WC'
@@ -14,29 +42,6 @@ angular.module('websiteApp')
             title: 'FIS',
             link: 'Rankings?type=FIS'
         }, ];
-
-        var leaders = {
-            men: [{
-                name: 'Marcel Hirscher',
-                points: 256
-            }, {
-                name: 'Aksel Lund Svindal',
-                points: 255
-            }, {
-                name: 'Ted Ligety',
-                points: 254
-            }, ],
-            women: [{
-                name: 'Lara Gut',
-                points: 256
-            }, {
-                name: 'Anna Fenninger',
-                points: 255
-            }, {
-                name: 'Michel Gisin',
-                points: 254
-            }, ],
-        };
 
         return {
             getRankingLinks: function() {
