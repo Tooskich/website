@@ -8,10 +8,14 @@ angular.module('websiteApp')
             return o;
         };
 
-        var news = [];
-        News.getMagNews(function(response) {
-            news = response;
-            $scope.news = news;
-            $scope.randFirstNews = shuffle(news.slice(0, 5));
-        });
+        $scope.page = 1;
+        $scope.loadPage = function(number) {
+            News.getMagNews(function(news) {
+                $scope.page = number;
+                $scope.news = news;
+                $scope.randFirstNews = shuffle(news.slice(0, 5));
+
+            }, null, number);
+        };
+        $scope.loadPage($scope.page);
     });
