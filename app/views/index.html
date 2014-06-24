@@ -15,7 +15,7 @@
 					<span class="blue"><a ng-href="#!/News?n={{n.id}}">{{n.title}}</a></span>
 				</strong></p>
 				<p style="text-align:justify;"><strong><small>
-					{{n.content|plainText|truncate:'150'}}
+					{{n.content|plainText:'150'}}
 					<a ng-href="#!/News?n={{n.id}}"><img src="images/icons/read-more-arrow.png" class="icon" /></a>
 				</small></strong></p>
 			</div>
