@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('websiteApp')
-    .directive('tsNavbar', function($window, Blog, Page, Ranking) {
+    .directive('tsNavbar', function($window, Blog, Page, Ranking, Pub) {
         return {
             templateUrl: 'views/directives/core/navbar.html',
             restrict: 'EACM',
@@ -22,6 +22,10 @@ angular.module('websiteApp')
                     scope.pagesCat = {};
                     scope.pagesCat.cat = links;
                     scope.pagesCat.name = 'Tooski';
+                });
+
+                Pub.getHorizontalBanner(function(banners) {
+                    scope.banner = banners[0];
                 });
 
                 scope.isCollapsed = true;
