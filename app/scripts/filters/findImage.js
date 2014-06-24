@@ -6,8 +6,8 @@ angular.module('websiteApp')
          * input: the html fro which to extract the image url
          * thumb: wether to resize the image for thumb news, yes or no.
          */
-        var width = screen.width > 1200 ? 500 : screen.width > 992 ? 1500 :
-            screen.width > 550 ? 1000 : 700,
+        var width = screen.width > 1200 ? 650 : screen.width > 992 ? 500 :
+            screen.width > 550 ? 1800 : 700,
             height = 280;
         return function(input, thumb) {
             var id, start,
