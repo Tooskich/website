@@ -36,6 +36,14 @@ p {
     width:100%;
 }
 
+.pagination-link {
+    padding: 2px;
+    padding-left: 4px;
+    margin: 0px;
+    border-right: solid $gray 1px;
+    border-left: solid $gray 1px;
+}
+
 /* For testing purposes only*/
 .bordered {
     border:solid black 1px;

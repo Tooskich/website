@@ -20,6 +20,14 @@
 				</small></strong></p>
 			</div>
 		</div>
+		<div class="col-md-12 row" style="text-align:center;">
+			<img src="images/icons/nav-news-left.png" class="clickable" ng-click="loadPage(page-1)" />
+			<a class="clickable pagination-link" ng-repeat="i in [-3, -2, -1, 0, 1, 2, 3]" ng-click="loadPage(i+page)" ng-show="i + page > 0">
+				<strong ng-show="i == 0">{{i+page}}</strong>
+				<span ng-show="i != 0">{{i+page}}</span>
+			</a>
+			<img src="images/icons/nav-news-right.png" class="clickable" ng-click="loadPage(page+1)" />
+		</div>
 	</div>
 	<div class="col-md-4">
 		<div ts-widget-bar></div>

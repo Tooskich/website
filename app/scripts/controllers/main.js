@@ -8,42 +8,14 @@ angular.module('websiteApp')
             return o;
         };
 
-        var news = [];
-        News.getNews(function(response) {
-            news = response;
-            debugger;
-            $scope.news = news;
-            $scope.randFirstNews = shuffle(news.slice(0, 5));
-        }, null, 1);
+        $scope.page = 1;
+        $scope.loadPage = function(number) {
+            News.getNews(function(news) {
+                $scope.page = number;
+                $scope.news = news;
+                $scope.randFirstNews = shuffle(news.slice(0, 5));
 
-
-
-        if (parseInt($routeParams.n) || $routeParams.n === '0') {
-
-            var modalInstance = $modal.open({
-                templateUrl: 'news-modal.html',
-                controller: ['$scope', '$routeParams', '$modalInstance',
-                    'News',
-                    function($scope, $routeParams, $modalInstance, News) {
-
-                        var newsId = parseInt($routeParams.n);
-                        News.getNews(function(response) {
-
-                            news = response;
-
-                            $scope.news = news;
-
-                            $scope.disqusId = 'News' + newsId;
-
-                            $scope.close = function() {
-                                $modalInstance.close();
-                            };
-
-                        }, newsId);
-
-                    }
-                ],
-            });
-
-        }
+            }, null, number);
+        };
+        $scope.loadPage($scope.page);
     });
