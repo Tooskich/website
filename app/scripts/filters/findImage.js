@@ -2,11 +2,28 @@
 
 angular.module('websiteApp')
     .filter('findImage', function() {
-        return function(input) {
-            var re =
-                /(https?:\/\/[A-Za-z0-9_/\.\-\(\)]*\.(?:png|jpg|svg|jpeg))/gi;
+        /*
+         * input: the html fro which to extract the image url
+         * thumb: wether to resize the image for thumb news, yes or no.
+         */
+        var width = screen.width > 1200 ? 500 : screen.width > 992 ? 1500 :
+            screen.width > 550 ? 1000 : 700,
+            height = 280;
+        return function(input, thumb) {
+            var id, start,
+                re =
+                    /(https?:\/\/[A-Za-z0-9_/\.\-\(\)]*\.(?:png|jpg|svg|jpeg))/gi;
             input = re.exec(input);
             input = !! input ? input[0] : '/images/site/tooski.png';
-            return input;
+            re = /res.cloudinary.com/gi
+            if (!thumb || !re.test(input)) {
+                return input;
+            }
+            start = input.substring(0, input.lastIndexOf('upload/') + 7);
+            id = input.substr(input.lastIndexOf('/'));
+            return start + 'w_' + width + ',h_' + height +
+                ',c_thumb,g_face' + id;
+
+
         };
     });
