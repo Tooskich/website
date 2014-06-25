@@ -15,7 +15,7 @@ angular.module('websiteApp')
                     /(https?:\/\/[A-Za-z0-9_/\.\-\(\)]*\.(?:png|jpg|svg|jpeg))/gi;
             input = re.exec(input);
             input = !! input ? input[0] : '/images/site/tooski.png';
-            re = /res.cloudinary.com/gi
+            re = /res.cloudinary.com/gi;
             if (!thumb || !re.test(input)) {
                 return input;
             }
