@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('websiteApp')
-    .directive('tsNewsCarousel', function() {
+    .directive('tsNewsCarousel', function($timeout) {
         return {
             templateUrl: 'views/directives/news/carousel.html',
             restrict: 'EACM',
@@ -9,8 +9,26 @@ angular.module('websiteApp')
                 news: '=',
             },
             link: function postLink(scope, element, attrs) {
-                scope.interval = 5000;
+                var timeout,
+                    changeNews,
+                    cancelChange,
+                    interval = 2000;
+
+                scope.changeNews = function() {
+                    var length = scope.news.length || 1;
+                    scope.place = (scope.place + 1) % length;
+                    scope.current = scope.news[scope.place];
+                    timeout = $timeout(scope.changeNews, interval);
+                };
+
+                $timeout(scope.changeNews, interval);
+
+                scope.cancelChange = function() {
+                    $timeout.cancel(timeout);
+                }
+
                 scope.place = 0;
+
                 scope.$watch('news', function() {
                     if (scope.news) {
                         scope.current = scope.news[scope.place];

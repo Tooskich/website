@@ -36,14 +36,6 @@ p {
     width:100%;
 }
 
-.pagination-link {
-    padding: 2px;
-    padding-left: 4px;
-    margin: 0px;
-    border-right: solid $gray 1px;
-    border-left: solid $gray 1px;
-}
-
 /* For testing purposes only*/
 .bordered {
     border:solid black 1px;
@@ -174,6 +166,19 @@ div.blue {
     color:white;
     text-shadow: 1px 1px #000000;
 }
+
+.pagination-link {
+    padding: 2px;
+    padding-left: 4px;
+    margin: 0px;
+    border-right: solid $gray 1px;
+    border-left: solid $gray 1px;
+}
+
+.carousel {
+    background-image: url("/images/site/montagne.jpg");
+}
+
 img {
  width:auto;
  height:auto;
