@@ -9,8 +9,8 @@ angular.module('websiteApp')
         };
 
         $scope.latestNews = [];
-        News.getNews(function(set1) {
-            News.getNews(function(set2) {
+        News.getMagNews(function(set1) {
+            News.getMagNews(function(set2) {
                 $scope.latestNews = set1.concat(set2);
             }, null, 2);
         }, null, 1);

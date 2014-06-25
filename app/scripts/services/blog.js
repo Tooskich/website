@@ -2,116 +2,53 @@
 
 angular.module('websiteApp')
     .factory('Blog', function($http, Server) {
+        var blogApi = Server.Url + 'apiv1/bloggers/',
+            splitSymbol = '|',
+            unNestBloggerImages;
 
-        var loadBloggers, loadBlogPosts;
-        var blogsUrl = Server.Url + 'blogs/',
-            blogs = [],
-            posts = [];
-
-        loadBloggers = function(callback, id) {
-            var url = blogsUrl + (id ? '?id=' + id : '');
-            $http.get(url, {
-                cache: 'true'
-            })
-                .success(function(response) {
-                    var iter, filter;
-                    var processed = Server.processResponse(response);
-                    processed = processed.map(function(el) {
-                        el.ad = el.ad.split('|');
-                        el.sponsors = el.sponsors.split('|');
-                        return el;
-                    });
-
-                    for (iter = 0; iter < processed.length; iter++) {
-                        filter = blogs.some(function(el) {
-                            return JSON.stringify(el) === JSON.stringify(
-                                processed[iter]);
-                        });
-                        if (!filter) {
-                            blogs.push(processed[iter]);
-                        }
-                    }
-                    processed = processed.length > 1 ? processed :
-                        processed[0];
-                    callback(processed);
-                })
-                .error(Server.errorHandler);
-        };
-
-        loadBlogPosts = function(callback, id) {
-            var url = blogsUrl + 'posts/';
-            $http.get(url, {
-                cache: 'true'
-            })
-                .success(function(response) {
-                    var iter, filter;
-                    var processed = Server.processResponse(response);
-
-                    for (iter = 0; iter < processed.length; iter++) {
-                        filter = posts.some(function(el) {
-                            return JSON.stringify(el) === JSON.stringify(
-                                processed[iter]);
-                        });
-                        if (!filter) {
-                            posts.push(processed[iter]);
-                        }
-                    }
-                    processed = processed.length > 1 ? processed :
-                        processed[0];
-                    callback(processed);
-                })
-                .error(Server.errorHandler);
+        unNestBloggerImages = function(blogger) {
+            blogger.sponsors = blogger.sponsors.split(
+                splitSymbol);
+            blogger.ad = blogger.ad.split(splitSymbol);
+            return blogger;
         };
 
         // Public API here
         return {
             getBlogger: function(callback, id) {
-                var getBlogger;
-                if (blogs.length < 1) {
-                    getBlogger = this.getBlogger;
-                    loadBloggers(function() {
-                        getBlogger(callback, id);
-                    });
-                }
-                else {
-                    var blogger = blogs.filter(function(el) {
-                        return el.id === parseInt(id);
-                    });
-                    blogger = blogger[0] ? blogger[0] : {};
-                    callback(blogger);
-                }
+                var url = id ? blogApi + id + '/' : blogApi;
+                $http.get(url)
+                    .then(function(res) {
+                        var i,
+                            data = res.data;
+                        if (!(data instanceof Array)) {
+                            data = unNestBloggerImages(data);
+                        }
+                        else {
+                            for (i = 0; i < data.length; i++) {
+                                data[i] = unNestBloggerImages(data[i]);
+                            }
+                        }
+                        callback(data);
+                    }, Server.errorHandler);
             },
 
             getBlogLinks: function(callback) {
-                var getBlogLinks;
-                if (blogs.length < 1) {
-                    getBlogLinks = this.getBlogLinks;
-                    loadBloggers(function() {
-                        getBlogLinks(callback);
-                    });
-                }
-                else {
-                    callback(blogs.map(function(el) {
+                this.getBlogger(function(bloggers) {
+                    var links = bloggers.map(function(el) {
                         el.title = el.name,
                         el.link = 'Blog?id=' + el.id;
                         return el;
-                    }));
-                }
+                    });
+                    callback(links);
+                });
             },
 
             getNews: function(callback, id) {
-                var getNews;
-                if (posts.length < 1) {
-                    getNews = this.getNews;
-                    loadBlogPosts(function() {
-                        getNews(callback, id);
-                    });
-                }
-                else {
-                    callback(posts.filter(function(el) {
-                        return el.blogId === parseInt(id);
-                    }));
-                }
+                $http.get(blogApi + id + '/posts/')
+                    .then(function(res) {
+                        callback(res.data);
+                    }, Server.errorHandler);
             },
 
         };
