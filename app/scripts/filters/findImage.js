@@ -8,20 +8,25 @@ angular.module('websiteApp')
          */
         var width = screen.width > 1200 ? 650 : screen.width > 992 ? 500 :
             screen.width > 550 ? 1800 : 700,
-            height = 280;
-        return function(input, thumb) {
+            thumbHeight = 280,
+            carouselHeight = 600;
+        return function(input, thumb, carousel) {
             var id, start,
                 re =
                     /(https?:\/\/[A-Za-z0-9_/\.\-\(\)]*\.(?:png|jpg|svg|jpeg))/gi;
             input = re.exec(input);
             input = !! input ? input[0] : '/images/site/tooski.png';
             re = /res.cloudinary.com/gi;
-            if (!thumb || !re.test(input)) {
+            if ((!thumb && !carousel) || !re.test(input)) {
                 return input;
             }
             start = input.substring(0, input.lastIndexOf('upload/') + 7);
             id = input.substr(input.lastIndexOf('/'));
-            return start + 'w_' + width + ',h_' + height +
+            if (thumb) {
+                return start + 'w_' + width + ',h_' + thumbHeight +
+                    ',c_thumb,g_face' + id;
+            }
+            return start + 'w_' + (2 * width) + ',h_' + carouselHeight +
                 ',c_thumb,g_face' + id;
         };
     });

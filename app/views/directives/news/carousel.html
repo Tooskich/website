@@ -1,8 +1,24 @@
-<carousel interval="interval">
-	<slide ng-repeat="n in news" active="n.active">
-		<img ng-src="{{n.content | findImage:false}}" style="margin:auto;height:300px;width:100%;" alt="{{n.title}}" />
-		<div class="carousel-caption">
-			<h2><a ng-href="#!/?n={{n.id}}" class="white"><strong>{{n.title}}</strong></a></h2>
-		</div>
-	</slide>
-</carousel>
+<div class="col-md-12 row">
+    <div class="col-md-4">
+        <p class="red" style="text-align:left;">
+            <small>
+                <strong>{{current.date | date:'dd/MM/yyyy'}}</strong>
+            </small>
+        </p>
+        <h4 class="blue sansational" style="text-align:left;">
+            <strong>{{current.title}}</strong>
+        </h4>
+        <p style="text-align:justify;">
+            <strong><small>{{current.content | plainText:250}}</small></strong>
+        </p>
+        <div class="row" style="position:absolute;left:140px;top:250px;">
+        <span ng-repeat="(index, n) in news">
+            <img src="images/icons/slider-empty.png" ng-click="loadNews(index);" ng-show="n != current" class="icon" />
+            <img src="images/icons/slider-point.png" ng-click="loadNews(index);" ng-show="n == current" class="icon" />
+        </span>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <img src="{{current.content | findImage:false:true}}" style="width:100%;height:300px;" />
+    </div>
+</div>
