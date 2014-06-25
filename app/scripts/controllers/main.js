@@ -8,6 +8,14 @@ angular.module('websiteApp')
             return o;
         };
 
+
+        $scope.latestNews = [];
+        News.getNews(function(set1) {
+            News.getNews(function(set2) {
+                $scope.latestNews = set1.concat(set2);
+            }, null, 2);
+        }, null, 1);
+
         $scope.page = 1;
         $scope.loadPage = function(number) {
             News.getNews(function(news) {

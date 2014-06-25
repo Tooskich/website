@@ -28,6 +28,23 @@
 			</a>
 			<img src="images/icons/nav-news-right.png" class="clickable" ng-click="loadPage(page+1)" />
 		</div>
+		<div class="col-md-12">
+			<div class="col-md-6 row" ng-repeat="n in latestNews">
+				<small>
+					<strong>
+						<a ng-href="#!/News?n={{n.id}}">
+							<span class="blue">
+							{{n.date | date:'dd-M-yyyy'}}:
+							</span>
+							&nbsp;
+							<span style="color:black;">
+								{{n.title | plainText:150}}
+							</span>
+						</a>
+					</strong>
+				</small>
+			</div>
+		</div>
 	</div>
 	<div class="col-md-4">
 		<div ts-widget-bar></div>
