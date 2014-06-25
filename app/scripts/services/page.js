@@ -13,7 +13,6 @@ angular.module('websiteApp')
                         el.title = el.name;
                         return el;
                     });
-                    debugger
                     callback(pages);
                 });
             },

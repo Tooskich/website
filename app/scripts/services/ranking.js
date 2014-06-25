@@ -3,7 +3,7 @@
  * Rankings are only for the general rankings of the WC, EC or FIS.
  */
 angular.module('websiteApp')
-    .factory('Ranking', function($http) {
+    .factory('Ranking', function($http, Server) {
         var rankFile = '/ranking.json',
             leaders;
         $http.get(rankFile)
