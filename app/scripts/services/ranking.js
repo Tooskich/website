@@ -30,7 +30,10 @@ angular.module('websiteApp')
                     men: men,
                     women: women,
                 };
-            }, Server.errorHandler);
+            }, function() {
+                console.log(
+                    'Les classements généraux n\'ont pas été publiés.');
+            });
 
         var rankingsLinks = [{
             title: 'Coupe du Monde',
