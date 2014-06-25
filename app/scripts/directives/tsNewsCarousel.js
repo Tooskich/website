@@ -18,6 +18,7 @@ angular.module('websiteApp')
                     var length = scope.news.length || 1;
                     scope.place = (scope.place + 1) % length;
                     scope.current = scope.news[scope.place];
+                    scope.cancelChange();
                     timeout = $timeout(scope.changeNews, interval);
                 };
 
