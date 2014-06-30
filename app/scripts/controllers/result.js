@@ -6,7 +6,7 @@ angular.module('websiteApp')
         Result.getResult(resultId, function(result) {
             $scope.headers = result.headers;
             $scope.result = result;
-            $scope.content = result.content;
+            $scope.content = result.table;
             $scope.title = result.title;
             $scope.date = result.date;
             $scope.genre = result.genre;
