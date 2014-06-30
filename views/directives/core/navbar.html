@@ -1,36 +1,72 @@
 <div>
-	<nav class="navbar navbar-default navbar-static-top" role="navigation">
-		<!-- Brand and toggle get grouped for better mobile display -->
+	<div class="nav-ad" style="text-align:center">
+		<img ng-src="{{banner.url}}" style="max-height:90px;max-width:100%">
+	</div>
+	<div class="container">
 
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" ng-click="isCollapsed = !isCollapsed">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" ng-href="#">Tooski</a>
+		<div class="col-md-12 row" style="margin-right:0px;padding-right:0px">
+			<div class="col-md-4" style="text-align:left; padding:0px" style="margin-right:0px;padding-right:0px">
+				<a ng-href="/">
+					<img src="images/site/tooski.png" style="height:75px">
+				</a>
 			</div>
-			<div class="collapse navbar-collapse" collapse="isCollapsed" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav">
-					<li class="ts-nav-link {{{true: 'active', false: ''}[activeCat == 1]}}"><a ng-click="revealPills(1, null);" ng-href="#!/">Actu</a></li>
-					<li class="ts-nav-link {{{true: 'active', false: ''}[activeCat == 2]}}"><a ng-click="revealPills(2, null);" ng-href="#!/Mag">Mag</a></li>
-					<li class="ts-nav-link {{{true: 'active', false: ''}[activeCat == 3]}}"><a ng-click="revealPills(3, resultsCat);">Résultats</a></li>
-					<li class="ts-nav-link {{{true: 'active', false: ''}[activeCat == 4]}}"><a ng-click="revealPills(4, blogsCat);">Blogs</a></li>
-					<li class="ts-nav-link {{{true: 'active', false: ''}[activeCat == 5]}}"><a ng-click="revealPills(5, pagesCat);">À propos</a></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="http://team.tooski.ch" target="_blank">Tooski Teams</a></li>
-				</ul>
+			<div class="col-md-8 form-inline" style="text-align:right;margin-right:0px;padding-right:0px;padding-top:10px">
+				<div class="col-md-12 row nav-social">
+					<a href="https://www.facebook.com/tooskivousfaut" target="_blank">
+						<img src="images/icons/social-facebook.png">
+					</a>
+					<a href="https://twitter.com/tooskivousfaut" target="_blank">
+						<img src="images/icons/social-twitter.png">
+					</a>
+					<a href="mailto:info@tooski.ch" target="_blank">
+						<img src="images/icons/social-mail.png">
+					</a>
+					<a href="http://tooski.ch/more/Feed" target="_blank">
+						<img src="images/icons/social-rss.png">
+					</a>
+					<img src="images/icons/search-lens.png" style="width:15px">
+					<input type="text" placeholder="Recherche">
+				</div>
+				<div class="col-md-12 row" style="margin-top:15px;margin-right:0px;padding-right:0px;padding-bottom:10px">
+					<a href="#!/" class="nav-links" ng-click="resetSubMenu('Acutalité')">
+						Actu
+					</a>
+					<a href="#!/Mag" class="nav-links" ng-click="resetSubMenu('Point de vue')">
+						Point de vue
+					</a>
+					<a ng-click="revealPills(3, resultsCat);" class="nav-links clickable">
+						Résultats
+					</a>
+					<a ng-click="revealPills(4, blogsCat);" class="nav-links clickable">
+						Blogs
+					</a>
+					<a href="#!/Skiclubs" class="nav-links" ng-click="resetSubMenu('Ski-Clubs')">
+						Ski-clubs
+					</a>
+					<a href="#!/Shop" class="nav-links" ng-click="resetSubMenu('Boutique')">
+						Boutique
+					</a>
+					<a ng-click="revealPills(5, pagesCat);" class="nav-links no-border clickable">
+						Tooski
+					</a>
+				</div>
 			</div>
 		</div>
-	</nav>
-
-	<div class="container" id="ts-nav-subbar" style="display:none">
-		<ul class="nav nav-pills well well-sm" id="ts-nav-subbar-list">
-			<li class="{{{true: 'active', false: ''}[activeSubCat == cat.link]}}" ng-repeat="cat in currentCat"><a ng-click="selectSubCat(cat.link)" ng-href="#!/{{cat.link}}" style="padding:3px">{{cat.title}}</a></li>
-		</ul>
 	</div>
-	
+
+	<div id="ts-nav-subbar" class="blue" style="display:none;margin-bottom:5px">
+		<div class="container">
+			<div class="col-md-12 row" style="margin-top:5px;margin-bottom:5px">
+				<strong class="white">{{currentCat.name | uppercase}}</strong>
+				<div class="pull-right">
+					<span ng-repeat="(index, cat) in currentCat.cat">
+						<a ng-click="selectSubCat(cat.link)" ng-href="#!/{{cat.link}}" class="sub-nav-links {{{true: 'no-border', false: ''}[index + 1 == currentCat.cat.length]}}">
+						<span ng-bind-html-unsafe="cat.title"></span>
+						</a>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
 </div>
