@@ -5,7 +5,7 @@ $gray: #d2d2d2;
 
 @font-face {
     font-family: Sansation;
-    src: url('Sansation_Regular.ttf');
+    src: url('../fonts/Sansation_Regular.ttf');
 }
 @mixin border-radius($radius) {
    -webkit-border-radius: $radius;
