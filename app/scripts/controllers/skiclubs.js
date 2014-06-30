@@ -34,7 +34,17 @@ angular.module('websiteApp')
         };
 
         $scope.markerClick = function($markerModel) {
-            var temp = $markerModel;
-            debugger;
+            $scope.$emit('tsChangeClub', $markerModel);
         };
+
+        $scope.currentClub = {
+            title: '',
+            content: '',
+            contact: '',
+        };
+
+        $scope.$on('tsChangeClub', function(event, input) {
+            $scope.currentClub = input;
+            $scope.$apply();
+        });
     });
