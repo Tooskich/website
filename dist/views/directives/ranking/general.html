@@ -1,0 +1,18 @@
+<table class="table table-condensed">
+	<thead>
+		<tr>
+			<th>n°</th>
+			<th>Nom</th>
+			<th>Points</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="ranking in generalRanking">
+			<a ng-href="#!/Result?id={{ranking.id}}">
+				<td>{{$index + 1}}</td>
+				<td><small>{{ranking.name | titleCase}}</small></td>
+				<td>{{ranking.points}}</td>
+			</a>
+		</tr>
+	</tbody>
+</table>
