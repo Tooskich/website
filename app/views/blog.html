@@ -40,6 +40,14 @@
 			</div>
 		</div>
 
+		<div class="col-md-12" style="margin-bottom:20px;" ng-init="menRanking = 1">
+			<div class="row red" style="margin-bottom:8px;padding-left:5px;">
+				Ses sponsors
+				<img src="images/icons/sponsor-icon.png" class="pull-right icon" />
+			</div>
+			<img ng-repeat="sponsor in blogger.sponsors" src="{{sponsor}}" style="width:100%;margin-bottom:20px;" />
+		</div>
+
 		<div class="col-md-12" style="margin-bottom:20px;">
 			<div class="row red" style="margin-bottom:8px;padding-left:5px;">
 				Contactez-nous !
@@ -52,19 +60,11 @@
 
 				<p>Tooski | 21, avenue du Léman | CH – 1005 Lausanne
 					<br />
-
-					info@tooski.ch
+					<a href="mailto:info@tooski.ch?subject=Ajout Skiclubs">info@tooski.ch</a>
 				</p>
 			</div>
 		</div>
 
-		<div class="col-md-12" style="margin-bottom:20px;" ng-init="menRanking = 1">
-			<div class="row red" style="margin-bottom:8px;padding-left:5px;">
-				Ses sponsors
-				<img src="images/icons/sponsor-icon.png" class="pull-right icon" />
-			</div>
-			<img ng-repeat="sponsor in blogger.sponsors" src="{{sponsor}}" style="width:100%;margin-bottom:20px;" />
-		</div>
 
 	</div>
 </div>

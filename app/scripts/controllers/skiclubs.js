@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('websiteApp')
-    .controller('SkiclubsCtrl', function($scope, Skiclubs) {
+    .controller('SkiclubsCtrl', function($scope, Skiclubs, Widget) {
         var latitude = 46.3514,
             longitude = 7.1581,
             setMapCenter;
@@ -23,6 +23,10 @@ angular.module('websiteApp')
 
         Skiclubs.get(function(data) {
             $scope.skiclubs = data;
+        });
+
+        Widget.get(2, function(widget) {
+            $scope.widgetContent = widget;
         });
 
         $scope.map = {
