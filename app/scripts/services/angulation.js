@@ -2,24 +2,16 @@
 
 angular.module('websiteApp')
     .factory('Angulation', function(Server, $http) {
-        // Service logic
-        // ...
-
-        var meaningOfLife = 42;
+        var ngApi = Server.Url + 'apiv1/angulation/';
 
         // Public API here
         return {
             getCovers: function(callback) {
-                callback([
-                    'http://res.cloudinary.com/tooski/image/upload/v1405091228/j3lvvd2rc5ykd52utsdx.png',
-                    'http://res.cloudinary.com/tooski/image/upload/v1405091228/j3lvvd2rc5ykd52utsdx.png',
-                    'http://res.cloudinary.com/tooski/image/upload/v1405091228/j3lvvd2rc5ykd52utsdx.png',
-                    'http://res.cloudinary.com/tooski/image/upload/v1405091228/j3lvvd2rc5ykd52utsdx.png',
-                    'http://res.cloudinary.com/tooski/image/upload/v1405091228/j3lvvd2rc5ykd52utsdx.png',
-                    'http://res.cloudinary.com/tooski/image/upload/v1405091228/j3lvvd2rc5ykd52utsdx.png',
-                    'http://res.cloudinary.com/tooski/image/upload/v1405091228/j3lvvd2rc5ykd52utsdx.png',
-                    'http://res.cloudinary.com/tooski/image/upload/v1405091228/j3lvvd2rc5ykd52utsdx.png',
-                ]);
-            }
+                var url = ngApi + 'covers/';
+                $http.get(url)
+                    .then(function(res) {
+                        callback(res.data);
+                    }, Server.errorHandler);
+            },
         };
     });
