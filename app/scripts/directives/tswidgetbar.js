@@ -7,7 +7,7 @@ angular.module('websiteApp')
             restrict: 'EACM',
             link: function postLink(scope, element, attrs) {
 
-                Widget.get(function(data) {
+                Widget.get(1, function(data) {
                     scope.widgetContent = data;
                 });
 
