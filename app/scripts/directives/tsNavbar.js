@@ -18,11 +18,11 @@ angular.module('websiteApp')
                     scope.blogsCat.name = 'Blogs';
                 });
 
-                Page.getPageLinks(function(links) {
-                    scope.pagesCat = {};
-                    scope.pagesCat.cat = links;
-                    scope.pagesCat.name = 'Tooski';
-                });
+            // Page.getPageLinks(function(links) {
+            //     scope.pagesCat = {};
+            //     scope.pagesCat.cat = links;
+            //     scope.pagesCat.name = 'Tooski';
+            // });
 
                 Pub.getHorizontalBanner(function(banners) {
                     scope.banner = banners[0];
