@@ -6,7 +6,7 @@
         </google-map>
         <div class="col-md-12" style="margin-left:0px;padding-left:0px;">
             <h3 class="news-title">{{currentClub.title}}</h3>
-            <p class="sansation">{{currentClub.description}}</p>
+            <p class="sansation" ng-bind-html-unsafe="currentClub.description"></p>
             <div class="col-md-12 row">
                 <div style="text-align:center;">
                     {{currentClub.contact}}
