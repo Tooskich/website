@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('websiteApp')
-    .controller('ShopCtrl', function($scope) {
-        jQuery("#shop-content *")
-            .hide();
+    .controller('ShopCtrl', function($scope, Angulation) {
+        Angulation.getCovers(function(covers) {
+            $scope.covers = covers;
+        });
     });
