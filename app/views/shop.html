@@ -46,44 +46,46 @@
             <p>Vous voulez vous abonner sans attendre ? Passez directement à l’action sans perdre un instant. (bouton s’abonner)</p>
 
             <div class="col-md-10 col-md-offset-1" style="margin-bottom:30px;">
-                <img ng-repeat="cover in covers" ng-src="{{cover.url}}" style="max-width:100px;margin:10px;" />
-            </div>
+                <a ng-repeat="cover in covers" ng-click="openLightboxModal($index)">
+                  <img ng-src="{{cover.url}}" style="max-width:100px;margin:10px;" />
+              </a>
+          </div>
 
+      </div>
+  </div>
+  <div class="col-md-4">
+
+
+    <div class="col-md-12" style="margin-bottom:20px;">
+        <div class="row red" style="padding-left:5px;">
+            Exemplaire Gratuit
+            <img src="images/icons/ski-icon.png" class="pull-right icon" />
         </div>
-    </div>
-    <div class="col-md-4">
+        <div class="row">
+            <p class="sansation col-md-12" style="text-align:justify;">
+                Vous préféreriez commencer par feuilleter notre magazine ? Ecrivez-nous un petit mail (sans oublier vos coordonnées postales), nous nous ferons un plaisir de vous en envoyer gratuitement un numéro.
+            </p>
+            <div style="text-align:center;">
 
-
-        <div class="col-md-12" style="margin-bottom:20px;">
-            <div class="row red" style="padding-left:5px;">
-                Exemplaire Gratuit
-                <img src="images/icons/ski-icon.png" class="pull-right icon" />
-            </div>
-            <div class="row">
-                <p class="sansation col-md-12" style="text-align:justify;">
-                    Vous préféreriez commencer par feuilleter notre magazine ? Ecrivez-nous un petit mail (sans oublier vos coordonnées postales), nous nous ferons un plaisir de vous en envoyer gratuitement un numéro.
-                </p>
-                <div style="text-align:center;">
-
-                    <a href="mailto:angulation@tooski?subject=Exemplaire Gratuit" class="btn btn-primary">
-                        Exemplaire gratuit
-                    </a>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="col-md-12" style="margin-bottom:20px;">
-            <div class="row red" style="padding-left:5px;">
-                Collectionneurs
-                <img src="images/icons/ski-icon.png" class="pull-right icon" />
-            </div>
-            <div class="row" style="text-align:center;">
-                <p class="sansation col-md-12" style="text-align:justify;">
-                    Si vous souhaitez compléter votre collection, contactez-nous. On ne sait jamais...
-                </p>
-                <a href="mailto:angulation@tooski.ch?subject=Collectionneur" class="btn btn-primary">angulation@tooski.ch</a>
+                <a href="mailto:angulation@tooski?subject=Exemplaire Gratuit" class="btn btn-primary">
+                    Exemplaire gratuit
+                </a>
             </div>
         </div>
     </div>
+
+
+    <div class="col-md-12" style="margin-bottom:20px;">
+        <div class="row red" style="padding-left:5px;">
+            Collectionneurs
+            <img src="images/icons/ski-icon.png" class="pull-right icon" />
+        </div>
+        <div class="row" style="text-align:center;">
+            <p class="sansation col-md-12" style="text-align:justify;">
+                Si vous souhaitez compléter votre collection, contactez-nous. On ne sait jamais...
+            </p>
+            <a href="mailto:angulation@tooski.ch?subject=Collectionneur" class="btn btn-primary">angulation@tooski.ch</a>
+        </div>
+    </div>
+</div>
 </div>

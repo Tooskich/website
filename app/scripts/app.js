@@ -11,6 +11,10 @@ angular
         'ui.bootstrap',
         'ngDisqus',
         'google-maps',
+
+
+
+        'bootstrapLightbox',
     ])
     .config(function($routeProvider, $locationProvider) {
         $routeProvider
