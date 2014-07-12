@@ -2,6 +2,9 @@
 
 angular
     .module('websiteApp', [
+        'ngRoute',
+        'ngTouch',
+        'ngAnimate',
         'ngCookies',
         'ngResource',
         'ngSanitize',
@@ -44,8 +47,8 @@ angular
                 controller: 'SkiclubsCtrl'
             })
             .when('/Shop', {
-              templateUrl: 'views/shop.html',
-              controller: 'ShopCtrl'
+                templateUrl: 'views/shop.html',
+                controller: 'ShopCtrl'
             })
             .otherwise({
                 redirectTo: '/'

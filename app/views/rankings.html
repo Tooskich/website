@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col-md-5">
+	<div class="col-md-4">
 		<div class="red" style="margin-bottom:8px;padding-left:5px;">
 			{{cat}}
 			<img src="images/icons/ski-icon.png" class="pull-right icon" />
@@ -33,7 +33,7 @@
 			</tbody>
 		</table>
 	</div>
-	<div class="col-md-3">
+	<div class="col-md-4">
 		<div class="red" style="margin-bottom:8px;padding-left:5px;">
 			Classements
 			<img src="images/icons/Cup-icon.png" class="pull-right icon" />
@@ -47,8 +47,8 @@
 
             <table style="width:100%;">
                 <tr ng-repeat="(index, skier) in currentGeneralRanking" style="margin-bottom:5px;">
-                    <td style="margin-right:20px;"><span class="red"><strong><small>{{index + 1}}</small></strong></span></td>
-                    <td><strong><small>{{skier.name | titleCase}}</small></strong></td>
+                    <td style="width:20px;text-align:left;"><span class="red"><strong><small>{{index + 1}}</small></strong></span></td>
+                    <td style="text-align:left;"><strong><small>{{skier.name | titleCase}}</small></strong></td>
                     <td style="text-align:right;"><small style="color:gray;">{{skier.points}}</small></td>
                 </tr>
             </table>
