@@ -61,7 +61,7 @@
 				<div class="pull-right">
 					<span ng-repeat="(index, cat) in currentCat.cat">
 						<a ng-click="selectSubCat(cat.link)" ng-href="#!/{{cat.link}}" class="sub-nav-links {{{true: 'no-border', false: ''}[index + 1 == currentCat.cat.length]}}">
-						<span ng-bind-html-unsafe="cat.title"></span>
+						<span ng-bind-html="cat.title"></span>
 						</a>
 					</span>
 				</div>

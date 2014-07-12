@@ -18,11 +18,11 @@ angular.module('websiteApp')
                     scope.blogsCat.name = 'Blogs';
                 });
 
-            // Page.getPageLinks(function(links) {
-            //     scope.pagesCat = {};
-            //     scope.pagesCat.cat = links;
-            //     scope.pagesCat.name = 'Tooski';
-            // });
+                // Page.getPageLinks(function(links) {
+                //     scope.pagesCat = {};
+                //     scope.pagesCat.cat = links;
+                //     scope.pagesCat.name = 'Tooski';
+                // });
 
                 Pub.getHorizontalBanner(function(banners) {
                     scope.banner = banners[0];
@@ -34,7 +34,7 @@ angular.module('websiteApp')
                     scope.revealPills(null, {
                         cat: [{
                             link: '',
-                            title: '<img src="images/icons/back-arrow.png" style="max-height:22px;margin:0px;padding:0pxx;" ng-click="$window.history.back()" />',
+                            title: '<img src="images/icons/back-arrow.png" class="icon" style="max-height:22px;margin:0px;padding:0px;" ng-click="$window.history.back()" />',
                         }],
                         name: name,
                     });

@@ -35,6 +35,7 @@ angular.module('websiteApp')
                 longitude: longitude,
             },
             zoom: 8,
+            draggable: true,
         };
 
         $scope.markerClick = function($markerModel) {
