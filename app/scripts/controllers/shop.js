@@ -8,7 +8,6 @@ angular.module('websiteApp')
                     url: el.url,
                     width: 465,
                     height: 650,
-                    caption: 'Angulation n°' + (index + 1),
                 }
                 return img;
             });
