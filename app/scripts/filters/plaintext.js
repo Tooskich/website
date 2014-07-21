@@ -7,7 +7,6 @@ angular.module('websiteApp')
                 .replace(/<[^>]+>|&nbsp;/gm, '');
             // text = angular.element(text)
             //     .text();
-            if (length) debugger
             return length ? $filter('truncate')(text, length) : text;
         };
     });
