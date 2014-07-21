@@ -7,14 +7,6 @@ angular.module('websiteApp')
             restrict: 'EACM',
             link: function postLink(scope, element, attrs) {
 
-                scope.map = {
-                    center: {
-                        latitude: 46.3514,
-                        longitude: 7.1581,
-                    },
-                    zoom: 8,
-                };
-
                 Widget.get(1, function(data) {
                     scope.widgetContent = data;
                 });
