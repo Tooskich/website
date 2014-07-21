@@ -15,7 +15,7 @@
 					<small><strong>Date: </strong>{{news.date | date:'dd/MM/yyyy'}}</small>
 				</p>
 			</div>
-			<p align="justify" ng-bind-html="news.content"></p>
+			<p align="justify" ng-bind-html="news.content | unsafeHtml"></p>
 			<p align="right" ng-hide="news.mag == 1">
 				<em>Par {{news.author}}, le {{news.date | date:'dd/MM/yyyy'}} à {{news.date | date:'hh:mm'}}</em>
 			</p>

@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('websiteApp')
-  .filter('unsafeHtml', function () {
-    return function (input) {
-      return 'unsafeHtml filter: ' + input;
-    };
-  });
+    .filter('unsafeHtml', function($sce) {
+        return function(input) {
+            return $sce.trustAsHtml(input);
+        };
+    });
