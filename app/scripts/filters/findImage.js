@@ -9,13 +9,14 @@ angular.module('websiteApp')
         var width = screen.width > 1200 ? 650 : screen.width > 992 ? 500 :
             screen.width > 550 ? 1800 : 700,
             thumbHeight = 280,
-            carouselHeight = 600;
+            carouselHeight = 600,
+            defaultImage = '/images/site/tooski_bordered.png';
         return function(input, thumb, carousel) {
             var id, start,
                 re =
-                    /(https?:\/\/[A-Za-z0-9_/\.\-\(\)]*\.(?:png|jpg|svg|jpeg))/gi;
+                /(https?:\/\/[A-Za-z0-9_/\.\-\(\)]*\.(?:png|jpg|svg|jpeg))/gi;
             input = re.exec(input);
-            input = !! input ? input[0] : '/images/site/tooski.png';
+            input = !!input ? input[0] : defaultImage;
             re = /res.cloudinary.com/gi;
             if ((!thumb && !carousel) || !re.test(input)) {
                 return input;
