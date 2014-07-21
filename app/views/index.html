@@ -9,13 +9,17 @@
 		</div>
 		<div>
 			<div class="col-xs-6" style="padding:0px;padding-right:10px; margin-bottom:20px;" ng-repeat="n in news">
-				<img class="media-object" ng-src="{{n.content | findImage:true}}" alt="{{n.title}}" style="width:100%;height:140px;" />
+				<a ng-href="#!/News?n={{n.id}}">
+					<img class="media-object" ng-src="{{n.content | findImage:true}}" alt="{{n.title}}" style="width:100%;height:140px;" />
+				</a>
 				<p style="text-align:justify;"><strong>
-					<span class="red">{{n.date|date:'dd/MM/yyyy'}}//</span>
-					<span class="blue"><a ng-href="#!/News?n={{n.id}}">{{n.title}}</a></span>
+					<span class="red">{{n.date|date:'dd/MM/yyyy'}} &nbsp;//</span>
+					<span class="blue">
+						<a ng-href="#!/News?n={{n.id}}">{{n.title}}</a>
+					</span>
 				</strong></p>
 				<p style="text-align:justify;"><strong><small>
-					{{n.content|plainText:'150'}}
+					<span ng-bind-html="n.content|plainText:'150'"></span>
 					<a ng-href="#!/News?n={{n.id}}"><img src="images/icons/read-more-arrow.png" class="icon" /></a>
 				</small></strong></p>
 			</div>
