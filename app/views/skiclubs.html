@@ -1,21 +1,21 @@
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-xs-8">
         <google-map center="map.center" zoom="map.zoom" draggable="true">
         <markers models="skiclubs" labelContent="'title'" coords="'self'" click="markerClick">
         </markers>
     </google-map>
-    <div class="col-md-12" style="margin-left:0px;padding-left:0px;">
+    <div class="col-xs-12" style="margin-left:0px;padding-left:0px;">
         <h3 class="news-title">{{currentClub.title}}</h3>
         <p class="sansation" ng-bind-html-unsafe="currentClub.description"></p>
-        <div class="col-md-12 row">
+        <div class="col-xs-12 row">
             <div style="text-align:center;">
                 {{currentClub.contact}}
             </div>
         </div>
     </div>
 </div>
-<div class="col-md-4">
-    <div class="col-md-12" style="margin-bottom:20px;">
+<div class="col-xs-4">
+    <div class="col-xs-12" style="margin-bottom:20px;">
         <div class="row red" style="padding-left:5px;">
             Contact
             <img src="images/icons/magazine-icon.png" class="pull-right icon" />
@@ -25,7 +25,7 @@
         </div>
     </div>
 
-    <div class="col-md-12" style="margin-bottom:20px;">
+    <div class="col-xs-12" style="margin-bottom:20px;">
         <div class="row red" style="padding-left:5px;">
             Ajouts
             <img src="images/icons/megaphone-icon.png" class="pull-right icon" />

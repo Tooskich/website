@@ -2,13 +2,13 @@
 	<div ts-news-carousel news="randFirstNews" style="height:300px;max-height:300px;"></div>
 </div>
 <div class="row">
-	<div class="col-md-8">
-		<div class="col-md-12 red" style="margin-bottom:10px;">
+	<div class="col-xs-8">
+		<div class="col-xs-12 red" style="margin-bottom:10px;">
 			News
 			<img src="images/icons/megaphone-icon.png" class="pull-right icon" />
 		</div>
 		<div>
-			<div class="col-md-6" style="padding:0px;padding-right:10px; margin-bottom:20px;" ng-repeat="n in news">
+			<div class="col-xs-6" style="padding:0px;padding-right:10px; margin-bottom:20px;" ng-repeat="n in news">
 				<img class="media-object" ng-src="{{n.content | findImage:true}}" alt="{{n.title}}" style="width:100%;height:140px;" />
 				<p style="text-align:justify;"><strong>
 					<span class="red">{{n.date|date:'dd/MM/yyyy'}}//</span>
@@ -20,7 +20,7 @@
 				</small></strong></p>
 			</div>
 		</div>
-		<div class="col-md-12 row" style="text-align:center;">
+		<div class="col-xs-12 row" style="text-align:center;">
 			<img src="images/icons/nav-news-left.png" class="clickable" ng-click="loadPage(page-1)" />
 			<a class="clickable pagination-link" ng-repeat="i in [-3, -2, -1, 0, 1, 2, 3]" ng-click="loadPage(i+page)" ng-show="i + page > 0">
 				<strong ng-show="i == 0">{{i+page}}</strong>
@@ -28,8 +28,8 @@
 			</a>
 			<img src="images/icons/nav-news-right.png" class="clickable" ng-click="loadPage(page+1)" />
 		</div>
-		<div class="col-md-12">
-			<div class="col-md-6 row" ng-repeat="n in latestNews">
+		<div class="col-xs-12">
+			<div class="col-xs-6 row" ng-repeat="n in latestNews">
 				<small>
 					<strong>
 						<a ng-href="#!/News?n={{n.id}}">
@@ -46,7 +46,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-md-4">
+	<div class="col-xs-4">
 		<div ts-widget-bar></div>
 	</div>
 </div>
