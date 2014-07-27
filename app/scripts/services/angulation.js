@@ -1,17 +1,19 @@
 'use strict';
 
 angular.module('websiteApp')
-    .factory('Angulation', function(Server, $http) {
-        var ngApi = Server.Url + 'apiv1/angulation/';
+    .factory('Angulation', ['Server', '$http',
+        function(Server, $http) {
+            var ngApi = Server.Url + 'apiv1/angulation/';
 
-        // Public API here
-        return {
-            getCovers: function(callback) {
-                var url = ngApi + 'covers/';
-                $http.get(url)
-                    .then(function(res) {
-                        callback(res.data);
-                    }, Server.errorHandler);
-            },
-        };
-    });
+            // Public API here
+            return {
+                getCovers: function(callback) {
+                    var url = ngApi + 'covers/';
+                    $http.get(url)
+                        .then(function(res) {
+                            callback(res.data);
+                        }, Server.errorHandler);
+                },
+            };
+        }
+    ]);

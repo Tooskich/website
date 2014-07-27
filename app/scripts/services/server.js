@@ -18,7 +18,7 @@ angular.module('websiteApp')
         };
 
         this.errorHandler = function(status, response) {
-            alert(
+            console.log(
                 'There was a connection problem with the server. (' +
                 status + ')'
             );

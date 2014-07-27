@@ -37,8 +37,7 @@
             Magazine
             <img src="images/icons/magazine-icon.png" class="pull-right icon" />
         </div>
-        <div class="row">
-            <span ng-bind-html="widgetContent"></span>
+        <div ng-bind-html="widgetContent | unsafeHtml">
         </div>
     </div>
 
