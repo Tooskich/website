@@ -39,19 +39,32 @@
 			<img src="images/icons/Cup-icon.png" class="pull-right icon" />
 		</div>
 		<div>
-			<div class="row" style="text-align:center;">
-				<img ng-src="{{menImage}}" ng-init="menImage ='images/icons/hommes2.png'" style="max-width:45px;"  ng-mouseenter="menImage = 'images/icons/hommes2-hover.png'" ng-mouseleave="menImage = 'images/icons/hommes2.png'" class="clickable" ng-click="currentGeneralGenre = 'H'" />
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<img ng-src="{{womenImage}}" ng-init="womenImage ='images/icons/femmes2.png'" style="max-width:45px;"  ng-mouseenter="womenImage = 'images/icons/femmes2-hover.png'" ng-mouseleave="womenImage = 'images/icons/femmes2.png'" class="clickable" ng-click="currentGeneralGenre = 'F'" />
+			<div class="row" style="text-align:justify;">
+				<div style="margin-bottom:5px;" ng-show="currentGeneralGenre == 'H'">
+					<span class="blue">
+						<strong style="padding-left:95px;">Hommes</strong>
+					</span>
+					<a ng-click="currentGeneralGenre = 'F'" class="pull-right">
+						<span class="red clickable" style="padding-right:95px;">Femmes</span>
+					</a>
+				</div>
+				<div style="margin-bottom:5px;" ng-show="currentGeneralGenre == 'F'">
+					<a ng-click="currentGeneralGenre = 'H'" style="color:black;">
+						<span class="red clickable" style="padding-left:95px;">Hommes</span>
+					</a>
+					<span class="pull-right blue">
+						<strong style="padding-right:95px;">Femmes</strong>
+					</span>
+				</div>
 			</div>
 
-            <table style="width:100%;">
-                <tr ng-repeat="(index, skier) in currentGeneralRanking" style="margin-bottom:5px;">
-                    <td style="width:20px;text-align:left;"><span class="red"><strong><small>{{index + 1}}</small></strong></span></td>
-                    <td style="text-align:left;"><strong><small>{{skier.name | titleCase}}</small></strong></td>
-                    <td style="text-align:right;"><small style="color:gray;">{{skier.points}}</small></td>
-                </tr>
-            </table>
+			<table style="width:100%;">
+				<tr ng-repeat="(index, skier) in currentGeneralRanking" style="margin-bottom:5px;">
+					<td style="width:20px;text-align:left;"><span class="red"><strong><small>{{index + 1}}</small></strong></span></td>
+					<td style="text-align:left;"><strong><small>{{skier.name | titleCase}}</small></strong></td>
+					<td style="text-align:right;"><small style="color:gray;">{{skier.points}}</small></td>
+				</tr>
+			</table>
 		</div>
 	</div>
 	<div class="col-xs-4">

@@ -10,9 +10,9 @@
 			</h3>
 			<div ng-hide="news.mag == 0">
 				<p>
-					<small><strong>Auteur: </strong>{{news.author}}</small>
+					<small><strong>Auteur: &nbsp;</strong>{{news.author}}</small>
 					<br />
-					<small><strong>Date: </strong>{{news.date | date:'dd/MM/yyyy'}}</small>
+					<small><strong>Date: &nbsp;</strong>{{news.date | date:'dd/MM/yyyy'}}</small>
 				</p>
 			</div>
 			<p align="justify" ng-bind-html="news.content | unsafeHtml"></p>

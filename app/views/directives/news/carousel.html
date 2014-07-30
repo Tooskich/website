@@ -1,4 +1,4 @@
-<div class="carousel col-xs-12 row" ng-mouseenter="cancelChange()" ng-mouseleave="changeNews()">
+<div class="carousel col-xs-12 row" style="padding-right:0px;" ng-mouseenter="cancelChange()" ng-mouseleave="changeNews()">
     <div class="col-xs-4">
         <p class="red sansation" style="margin-top:30px;text-align:left;">
             <small>
@@ -18,9 +18,9 @@
             </span>
         </div>
     </div>
-    <div class="col-xs-8">
+    <div class="col-xs-8" style="padding-right:0px;">
         <a href="#!/News?n={{current.id}}">
-            <img src="{{current.content | findImage:false:true}}" style="width:100%;height:300px;" />
+            <img src="{{current.content | findImage:false:true}}" style="width:100%;height:300px;" class="pull-right" />
         </a>
     </div>
 </div>

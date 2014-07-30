@@ -10,13 +10,16 @@ angular.module('websiteApp')
             };
 
             $scope.latestNews = [];
-            News.getMagNews(function(set1) {
-                News.getMagNews(function(set2) {
-                    $scope.latestNews = set1.concat(set2);
-                }, null, 2);
-            }, null, 1);
+            $scope.$watch('page', function(value) {
+                News.getMagNews(function(set1) {
+                    News.getMagNews(function(set2) {
+                        $scope.latestNews = set1.concat(set2);
+                    }, null, value + 2);
+                }, null, value + 1);
+            });
 
             $scope.page = 1;
+
             $scope.loadPage = function(number) {
                 News.getMagNews(function(news) {
                     $scope.page = number;
