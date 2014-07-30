@@ -39,7 +39,8 @@ angular.module('websiteApp')
                 draggable: true,
             };
 
-            $scope.markerClick = function($markerModel) {
+            $scope.markerClick = function(a, s, d, f) {
+                debugger
                 $scope.$emit('tsChangeClub', $markerModel);
             };
 
