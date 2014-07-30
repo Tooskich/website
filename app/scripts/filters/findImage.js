@@ -12,6 +12,7 @@ angular.module('websiteApp')
                 500 :
                 screen.width > 550 ? 1800 : 700,
                 thumbHeight = 280,
+                width = 582,
                 carouselHeight = 600,
                 defaultImage = '/images/site/tooski_bordered.png';
             return function(input, thumb, carousel) {
