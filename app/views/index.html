@@ -14,7 +14,7 @@
 			<p style="text-align:justify;height:40px;"><strong>
 				<span class="red">{{n.date|date:'dd/MM/yyyy'}} &nbsp;//</span>
 				<span class="blue">
-					<a ng-href="#!/News?n={{n.id}}">{{n.title}}</a>
+					<a ng-href="#!/News?n={{n.id}}">{{n.title | plainText:65}}</a>
 				</span>
 			</strong></p>
 			<p style="text-align:justify;"><strong><small>
@@ -39,7 +39,7 @@
 						</span>
 						&nbsp;
 						<span style="color:black;">
-							{{n.title | plainText:38}}
+							{{n.title | plainText:35}}
 						</span>
 					</a>
 				</strong>
