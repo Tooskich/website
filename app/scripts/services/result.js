@@ -39,7 +39,9 @@ angular.module('websiteApp')
             return {
                 getResult: function(id, callback) {
                     var url = id ? racesApi + id + '/' : racesApi;
-                    $http.get(url)
+                    $http.get(url, {
+                        cache: true
+                    })
                         .then(function(res) {
                             callback(res.data);
                         }, Server.errorHandler);
@@ -47,7 +49,9 @@ angular.module('websiteApp')
 
                 getResultLists: function(category, callback) {
                     var url = racesApi + 'cat/' + category + '/';
-                    $http.get(url)
+                    $http.get(url, {
+                        cache: true
+                    })
                         .then(function(res) {
                             callback(res.data);
                         }, Server.errorHandler);

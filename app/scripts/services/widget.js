@@ -9,7 +9,9 @@ angular.module('websiteApp')
             return {
                 get: function(id, callback) {
                     var url = widgetApi + id + '/';
-                    $http.get(url)
+                    $http.get(url, {
+                        cache: true
+                    })
                         .then(function(res) {
                             callback(res.data.content);
                         }, Server.errorHandler);

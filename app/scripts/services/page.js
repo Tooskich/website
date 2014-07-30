@@ -20,7 +20,9 @@ angular.module('websiteApp')
 
                 getPage: function(callback, id) {
                     var url = id ? pageApi + id + '/' : pageApi;
-                    $http.get(url)
+                    $http.get(url, {
+                        cache: true
+                    })
                         .then(function(res) {
                             callback(res.data);
                         }, Server.errorHandler);

@@ -7,7 +7,9 @@ angular.module('websiteApp')
         function($http, Server) {
             var rankFile = '/ranking.json',
                 leaders;
-            $http.get(rankFile)
+            $http.get(rankFile, {
+                cache: true
+            })
                 .then(function(file) {
                     var men = file.data[0].men,
                         women = file.data[0].women;

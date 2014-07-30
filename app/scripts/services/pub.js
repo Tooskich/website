@@ -15,7 +15,9 @@ angular.module('websiteApp')
             return {
 
                 getCat: function(cat, callback) {
-                    $http.get(pubApi + '?category=' + cat)
+                    $http.get(pubApi + '?category=' + cat, {
+                        cache: true
+                    })
                         .then(function(res) {
                             var data = shuffleArray(res.data);
                             callback(data);

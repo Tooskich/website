@@ -12,7 +12,9 @@ angular.module('websiteApp')
                 getNews: function(callback, id, page) {
                     var url = id ? newsApi + id + '/' : newsApi;
                     url = page ? url + '?page=' + page : url;
-                    $http.get(url)
+                    $http.get(url, {
+                        cache: true
+                    })
                         .then(function(res) {
                             var data = res.data.results ? res.data.results :
                                 res.data;

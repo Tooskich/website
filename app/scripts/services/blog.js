@@ -18,7 +18,9 @@ angular.module('websiteApp')
             return {
                 getBlogger: function(callback, id) {
                     var url = id ? blogApi + id + '/' : blogApi;
-                    $http.get(url)
+                    $http.get(url, {
+                        cache: true
+                    })
                         .then(function(res) {
                             var i,
                                 data = res.data;
@@ -47,7 +49,9 @@ angular.module('websiteApp')
                 },
 
                 getNews: function(callback, id) {
-                    $http.get(blogApi + id + '/posts/')
+                    $http.get(blogApi + id + '/posts/', {
+                        cache: true
+                    })
                         .then(function(res) {
                             callback(res.data);
                         }, Server.errorHandler);

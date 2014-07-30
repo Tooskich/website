@@ -9,7 +9,9 @@ angular.module('websiteApp')
             return {
                 getCovers: function(callback) {
                     var url = ngApi + 'covers/';
-                    $http.get(url)
+                    $http.get(url, {
+                        cache: true
+                    })
                         .then(function(res) {
                             callback(res.data);
                         }, Server.errorHandler);

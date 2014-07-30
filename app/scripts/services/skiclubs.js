@@ -7,7 +7,9 @@ angular.module('websiteApp')
 
             return {
                 get: function(callback) {
-                    $http.get(scApi)
+                    $http.get(scApi, {
+                        cache: true
+                    })
                         .then(function(res) {
                             callback(res.data);
                         }, Server.errorHandler);
