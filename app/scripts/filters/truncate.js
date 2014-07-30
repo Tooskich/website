@@ -11,8 +11,7 @@ angular.module('websiteApp')
                 if (end === undefined) {
                     end = '...';
                 }
-                if (text.length <= length || text.length - end.length <=
-                    length) {
+                if (text.length <= length) {
                     return text;
                 }
                 else {
