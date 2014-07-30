@@ -39,9 +39,9 @@ angular.module('websiteApp')
                 draggable: true,
             };
 
-            $scope.markerClick = function(a, s, d, f) {
-                debugger
-                $scope.$emit('tsChangeClub', $markerModel);
+            $scope.markerClick = function(skiclub) {
+                $scope.currentClub = skiclub;
+                $scope.$apply();
             };
 
             $scope.currentClub = {
@@ -49,10 +49,5 @@ angular.module('websiteApp')
                 content: '',
                 contact: '',
             };
-
-            $scope.$on('tsChangeClub', function(event, input) {
-                $scope.currentClub = input;
-                $scope.$apply();
-            });
         }
     ]);
