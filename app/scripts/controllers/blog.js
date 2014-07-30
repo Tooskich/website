@@ -5,11 +5,13 @@ angular.module('websiteApp')
         function($scope, $routeParams, Blog) {
             var blogId = $routeParams.id;
             $scope.blogId = blogId;
+
             Blog.getNews(function(posts) {
                 $scope.news = posts;
             }, blogId);
 
             Blog.getBlogger(function(blogger) {
+                blogger.name = blogger.name.trim();
                 blogger.profilePic = blogger.profilePic ||
                     'images/site/profile.png';
                 blogger.sponsors = blogger.sponsors[0] ? blogger.sponsors :
