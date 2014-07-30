@@ -18,11 +18,16 @@ angular.module('websiteApp')
             return function(input, thumb, carousel) {
                 var id, start,
                     re =
-                    /(https?:\/\/[A-Za-z0-9_/\.\-\(\)]*\.(?:png|jpg|svg|jpeg))/gi;
+                    /((https?:\/\/)|(..\/assets\/uploads\/files\/)[A-Za-z0-9_/\.\-\(\)]*\.(?:png|jpg|svg|jpeg))/gi;
                 input = re.exec(input);
                 input = !!input ? input[0] : defaultImage;
                 re = /res.cloudinary.com/gi;
                 if ((!thumb && !carousel) || !re.test(input)) {
+                    re = /..\/assets\/uploads\/files\//gi;
+                    if (re.test(input)) {
+                        input = 'http://www.tooski.ch/' + input.substr(
+                            3);
+                    }
                     return input;
                 }
                 start = input.substring(0, input.lastIndexOf('upload/') +
