@@ -25,7 +25,7 @@ angular.module('websiteApp')
                         cache: true
                     })
                         .then(function(res) {
-                            var data = res.data.map(function(el) {
+                            var data = res.data.results.map(function(el) {
                                 el.date = el.date * 1000;
                                 return el;
                             });

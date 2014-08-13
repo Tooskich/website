@@ -12,8 +12,6 @@ angular.module('websiteApp')
                 $scope.location = result.location;
                 $scope.link = result.link;
                 $scope.genre = result.genre;
-                // document.getElementById('table-content')
-                //     .innerHTML = result.table;
                 angular.element('#table-content')
                     .html(result.table)
                     .find('table')
