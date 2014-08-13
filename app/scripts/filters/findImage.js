@@ -16,7 +16,6 @@ angular.module('websiteApp')
                 carouselHeight = 600,
                 defaultImage = '/images/site/tooski_bordered.png';
             return function(input, thumb, carousel) {
-                if (thumb) debugger
                 var id, start,
                     re =
                     /(((https?:\/\/)|(..\/assets\/uploads\/files\/))[A-Za-z0-9_/\.\-\(\)]*\.(?:png|jpg|svg|jpeg))/gi;
