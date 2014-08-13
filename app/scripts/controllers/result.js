@@ -17,9 +17,7 @@ angular.module('websiteApp')
                 angular.element('#table-content')
                     .html(result.table)
                     .find('table')
-                    .addClass(
-                        'table table-striped table-hover table-condensed'
-                )
+                    .addClass('table table-striped table-condensed');
             });
         }
     ]);
