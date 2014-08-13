@@ -18,9 +18,15 @@ angular.module('websiteApp')
                     $scope.cat = 'Dernières courses';
                     break;
             }
-            Result.getResultLists(cat, function(ranks) {
-                $scope.rankings = ranks;
-            });
+
+            $scope.page = 1;
+            $scope.loadPage = function(page) {
+                Result.getResultLists(page, cat, function(ranks) {
+                    $scope.page = page;
+                    $scope.rankings = ranks;
+                });
+            };
+            $scope.loadPage($scope.page);
 
             /**
              * Note: to change for each discipline, you have to load them in

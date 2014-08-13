@@ -19,8 +19,10 @@ angular.module('websiteApp')
                         }, Server.errorHandler);
                 },
 
-                getResultLists: function(category, callback) {
-                    var url = racesApi + 'cat/' + category + '/';
+                getResultLists: function(page, category, callback) {
+                    var url;
+                    page = page || 1;
+                    url = racesApi + 'cat/' + category + '/?page=' + page;
                     $http.get(url, {
                         cache: true
                     })
