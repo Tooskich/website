@@ -1,5 +1,9 @@
 <div class="row">
     <div class="col-xs-8">
+    <div class="red" style="padding-left:5px;">
+            Ski-clubs
+            <img src="images/icons/ski-icon.png" class="pull-right icon" />
+        </div>
         <google-map center="map.center" zoom="map.zoom" draggable="true">
         <marker ng-repeat="sc in skiclubs" coords="sc" click="markerClick(sc)"></marker>
     </google-map>
