@@ -9,11 +9,11 @@
 				<tr>
 					<th>Date</th>
 					<th>Course</th>
-					<th>Catégorie</th>
+					<th>Genre</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="rank in rankings">
+				<tr ng-repeat="rank in rankings | orderBy:'date':true">
 					<td>
 						<small class="red">
 							<strong>{{rank.date | date:'dd/MM/yyyy'}}</strong>
@@ -21,7 +21,9 @@
 					</td>
 					<td>
 						<a ng-href="#!/Result?resultId={{rank.id}}">
-							{{rank.info}}
+							<small>
+								<strong>{{rank.discipline}}</strong> | {{rank.location}}
+							</small>
 						</a>
 					</td>
 					<td style="text-align:center;">
