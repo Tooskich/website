@@ -6,15 +6,19 @@ angular.module('websiteApp')
             var cat = $routeParams.type;
             switch (cat) {
                 case 'WC':
+                    $scope.icon = 'world-cup.png';
                     $scope.cat = 'Coupe du Monde';
                     break;
                 case 'EC':
+                    $scope.icon = 'europe-cup.png';
                     $scope.cat = 'Coupe d\'Europe';
                     break;
                 case 'FIS':
+                    $scope.icon = 'fis.png';
                     $scope.cat = 'Courses FIS';
                     break;
                 default:
+                    $scope.icon = 'ski-icon.png';
                     $scope.cat = 'Dernières courses';
                     break;
             }
