@@ -6,33 +6,38 @@ angular.module('websiteApp')
     .factory('Ranking', ['$http', 'Server',
         function($http, Server) {
             var rankFile = '/ranking.json',
-                leaders;
+                leaders = {
+                    men: [],
+                    women: [],
+                };
             $http.get(rankFile, {
                 cache: true
             })
                 .then(function(file) {
                     var men = file.data[0].men,
                         women = file.data[0].women;
-                    men = men.map(function(el) {
-                        return {
-                            name: el[1],
-                            points: el[3],
-                            country: el[2],
-                            place: el[0],
-                        };
-                    });
-                    women = women.map(function(el) {
-                        return {
-                            name: el[1],
-                            points: el[3],
-                            country: el[2],
-                            place: el[0],
-                        };
-                    });
-                    leaders = {
-                        men: men,
-                        women: women,
-                    };
+                    if (men && men.length >= 1) {
+                        men = men.map(function(el) {
+                            return {
+                                name: el[1],
+                                points: el[3],
+                                country: el[2],
+                                place: el[0],
+                            };
+                        });
+                        leaders.men = men;
+                    }
+                    if (women && women.length >= 1) {
+                        women = women.map(function(el) {
+                            return {
+                                name: el[1],
+                                points: el[3],
+                                country: el[2],
+                                place: el[0],
+                            };
+                        });
+                        leaders.women = women;
+                    }
                 }, function() {
                     console.log(
                         'Les classements généraux n\'ont pas été publiés.'

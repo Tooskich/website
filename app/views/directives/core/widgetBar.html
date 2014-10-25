@@ -22,13 +22,22 @@
                     <strong style="padding-right:50px;">Femmes</strong>
                 </span>
             </div>
-            <table style="width:100%;">
-                <tr ng-repeat="(index, skier) in genRanking" style="margin-bottom:5px;">
-                    <td style="margin-right:20px;"><span class="red"><strong><small>{{index + 1}}</small></strong></span></td>
-                    <td><strong><small>{{skier.name | titleCase}}</small></strong></td>
-                    <td style="text-align:right;"><small style="color:gray;">{{skier.points}}</small></td>
-                </tr>
-            </table>
+            <div ng-if="genRanking.length >= 1">
+                <table style="width:100%;">
+                    <tr ng-repeat="(index, skier) in genRanking" style="margin-bottom:5px;">
+                        <td style="margin-right:20px;"><span class="red"><strong><small>{{index + 1}}</small></strong></span></td>
+                        <td><strong><small>{{skier.name | titleCase}}</small></strong></td>
+                        <td style="text-align:right;"><small style="color:gray;">{{skier.points}}</small></td>
+                    </tr>
+                </table>
+            </div>
+            <div ng-if="genRanking.length < 1">
+                <p>
+                    <small>
+                        <b>Il n'y a pas de classement publié pour l'instant.</b>
+                    </small>
+                </p>
+            </div>
         </div>
     </div>
 
