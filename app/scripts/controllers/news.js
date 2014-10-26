@@ -6,6 +6,8 @@ angular.module('websiteApp')
             var newsId = $routeParams.n;
             News.getNews(function(news) {
                 $scope.news = news;
+                document.getElementsByTagName('title')[0].innerHTML =
+                    news.title;
             }, newsId);
             $scope.disqusId = 'News' + newsId;
         }
