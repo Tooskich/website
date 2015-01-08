@@ -1,11 +1,13 @@
 'use strict';
 
 angular.module('websiteApp')
-    .controller('SkiclubsCtrl', ['$scope', 'Skiclubs', 'Widget',
-        function($scope, Skiclubs, Widget) {
+    .controller('SkiclubsCtrl', ['$scope', 'Skiclubs', 'Widget', 'Server',
+        function($scope, Skiclubs, Widget, Server) {
             var latitude = 46.3514,
                 longitude = 7.1581,
                 setMapCenter;
+
+            Server.sendAnalytics();
 
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function(position) {

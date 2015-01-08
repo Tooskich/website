@@ -1,8 +1,11 @@
 'use strict';
 
 angular.module('websiteApp')
-    .controller('ShopCtrl', ['$scope', 'Angulation', 'Lightbox',
-        function($scope, Angulation, Lightbox) {
+    .controller('ShopCtrl', ['$scope', 'Angulation', 'Lightbox', 'Server',
+        function($scope, Angulation, Lightbox, Server) {
+
+            Server.sendAnalytics();
+
             Angulation.getCovers(function(covers) {
                 covers = covers.map(function(el, index) {
                     var img = {

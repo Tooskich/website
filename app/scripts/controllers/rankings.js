@@ -2,7 +2,10 @@
 
 angular.module('websiteApp')
     .controller('RankingsCtrl', ['$scope', '$routeParams', 'Ranking', 'Result',
-        function($scope, $routeParams, Ranking, Result) {
+        'Server',
+        function($scope, $routeParams, Ranking, Result, Server) {
+            Server.sendAnalytics();
+
             var cat = $routeParams.type;
             switch (cat) {
                 case 'WC':

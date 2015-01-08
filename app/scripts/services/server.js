@@ -1,11 +1,18 @@
 'use strict';
 
 angular.module('websiteApp')
-    .service('Server', function Server() {
+    .service('Server', function Server($window, $location) {
         // AngularJS will instantiate a singleton by calling "new" on this function
 
         // this.Url = 'http://tooski.webfactional.com/api/';
         this.Url = 'http://127.0.0.1:8000/';
+
+        this.sendAnalytics = function() {
+            debugger;
+            $window.ga('send', 'pageview', {
+                page: $location.path()
+            });
+        };
 
         this.processResponse = function(response) {
             return response.map(function(el) {

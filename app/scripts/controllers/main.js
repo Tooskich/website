@@ -1,13 +1,15 @@
 'use strict';
 
 angular.module('websiteApp')
-    .controller('MainCtrl', ['$scope', '$routeParams', 'News',
-        function($scope, $routeParams, News) {
+    .controller('MainCtrl', ['$scope', '$routeParams', 'News', 'Server',
+        function($scope, $routeParams, News, Server) {
             function shuffle(o) { //v1.0
                 for (var j, x, i = o.length; i; j = Math.floor(Math.random() *
                     i), x = o[--i], o[i] = o[j], o[j] = x);
                 return o;
             };
+
+            Server.sendAnalytics();
 
             $scope.latestNews = [];
 

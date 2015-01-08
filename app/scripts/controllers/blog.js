@@ -1,10 +1,12 @@
 'use strict';
 
 angular.module('websiteApp')
-    .controller('BlogCtrl', ['$scope', '$routeParams', 'Blog',
-        function($scope, $routeParams, Blog) {
+    .controller('BlogCtrl', ['$scope', '$routeParams', 'Blog', 'Server',
+        function($scope, $routeParams, Blog, Server) {
             var blogId = $routeParams.id;
             $scope.blogId = blogId;
+
+            Server.sendAnalytics();
 
             Blog.getNews(function(posts) {
                 $scope.news = posts;

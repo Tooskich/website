@@ -1,9 +1,12 @@
 'use strict';
 
 angular.module('websiteApp')
-    .controller('ResultCtrl', ['$scope', '$routeParams', 'Result',
-        function($scope, $routeParams, Result) {
+    .controller('ResultCtrl', ['$scope', '$routeParams', 'Result', 'Server',
+        function($scope, $routeParams, Result, Server) {
             var resultId = $routeParams.resultId;
+
+            Server.sendAnalytics();
+
             Result.getResult(resultId, function(result) {
                 $scope.cat = result.category;
                 $scope.discipline = result.discipline;
