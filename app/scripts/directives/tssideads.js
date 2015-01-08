@@ -1,10 +1,13 @@
 'use strict';
 
 angular.module('websiteApp')
-    .directive('tsSideAds', function(Pub) {
+    .directive('tsSideAds', function($window, Pub) {
         return {
             templateUrl: 'views/directives/core/sideads.html',
             restrict: 'EACM',
+            scope: {
+                width: '=minWidth',
+            },
             link: function postLink(scope, element, attrs) {
                 function shuffle(o) { //v1.0
                     for (var j, x, i = o.length; i; j = Math.floor(Math.random() *
@@ -12,9 +15,28 @@ angular.module('websiteApp')
                     return o;
                 };
 
+                var checkWidth = function(width) {
+                    var width = width;
+                    return function() {
+                        console.log('adsf');
+                        if (width >= window.innerWidth) {
+                            element.css('display', 'none');
+                        }
+                        else {
+                            element.css('display', 'block');
+                        }
+                    };
+                };
+                checkWidth = checkWidth(scope.width);
+                checkWidth();
+
                 Pub.getVerticalBanner(function(banners) {
                     scope.ad = shuffle(banners)[0];
-                })
+                });
+
+
+                angular.element($window)
+                    .on('resize', checkWidth);
             }
         };
     });
