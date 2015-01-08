@@ -13,7 +13,6 @@ angular.module('websiteApp')
                 };
 
                 Pub.getVerticalBanner(function(banners) {
-                    debugger
                     scope.ad = shuffle(banners)[0];
                 })
             }

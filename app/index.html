@@ -32,13 +32,19 @@
 
       <div ts-navbar></div>
 
-        <div ts-side-ads class="pull-left"></div>
-        <div ts-side-ads class="pull-right"></div>
+      <center>
+        <div style="width:1280px;">
+          <div ts-side-ads class="pull-left" style="margin-left:20px;" ng-if="window.innerWidth >= 1280"></div>
+          <div ts-side-ads class="pull-right" style="margin-right:20px;"></div>
 
-      <!-- Add your site or application content here -->
-        <div class="container">
-          <div ng-view=""></div>
+          <!-- Add your site or application content here -->
+          <div class="container" style="padding:0px;">
+            <div ng-view=""></div>
+          </div>
+
         </div>
+
+      </center>
 
       <div ts-footer></div>
 
