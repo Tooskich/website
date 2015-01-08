@@ -18,7 +18,6 @@ angular.module('websiteApp')
                 var checkWidth = function(width) {
                     var width = width;
                     return function() {
-                        console.log('adsf');
                         if (width >= window.innerWidth) {
                             element.css('display', 'none');
                         }
