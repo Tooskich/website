@@ -21,7 +21,7 @@ angular.module('websiteApp')
                     });
 
                     Pub.getHorizontalBanner(function(banners) {
-                        scope.banner = shuffleArray(banners)[0];
+                        scope.footerBanner = shuffleArray(banners)[0];
                     });
                 }
             };

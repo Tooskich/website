@@ -9,6 +9,14 @@ angular.module('websiteApp')
                 replace: true,
                 link: function postLink(scope, element, attrs) {
 
+                    var shuffleArray = function shuffle(o) { //v1.0
+                        for (var j, x, i = o.length; i; j = Math.floor(
+                            Math
+                            .random() *
+                            i), x = o[--i], o[i] = o[j], o[j] = x);
+                        return o;
+                    };
+
                     scope.resultsCat = {};
                     scope.resultsCat.cat = Ranking.getRankingLinks();
                     scope.resultsCat.name = 'Résultats';
@@ -26,7 +34,7 @@ angular.module('websiteApp')
                     // });
 
                     Pub.getHorizontalBanner(function(banners) {
-                        scope.banner = banners[0];
+                        scope.banner = shuffleArray(banners)[0];
                     });
 
                     scope.isCollapsed = true;
