@@ -8,7 +8,6 @@ angular.module('websiteApp')
         this.Url = 'http://127.0.0.1:8000/';
 
         this.sendAnalytics = function() {
-            debugger;
             $window.ga('send', 'pageview', {
                 page: $location.path()
             });
