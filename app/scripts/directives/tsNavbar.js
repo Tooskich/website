@@ -37,6 +37,10 @@ angular.module('websiteApp')
                         scope.banner = shuffleArray(banners)[0];
                     });
 
+                    Pub.getVerticalBanner(function(banners) {
+                        debugger;
+                    });
+
                     scope.isCollapsed = true;
 
                     scope.resetSubMenu = function(name) {
