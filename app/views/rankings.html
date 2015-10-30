@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col-xs-4">
+	<div ng-class="catType=='FIS' ? 'col-xs-8':'col-xs-4'">
 		<div class="red" style="margin-bottom:8px;padding-left:5px;">
 			{{cat}}
 			<img ng-src="images/icons/{{icon}}" class="pull-right icon" />
@@ -47,7 +47,7 @@
 			</ul>
 		</div>
 	</div>
-	<div class="col-xs-4">
+	<div ng-class="catType=='FIS' ? 'hidden':'col-xs-4'">
 		<div class="red" style="margin-bottom:8px;padding-left:5px;">
 			Classements
 			<img src="images/icons/Cup-icon.png" class="pull-right icon" />

@@ -25,6 +25,7 @@ angular.module('websiteApp')
                     $scope.cat = 'Dernières courses';
                     break;
             }
+            $scope.catType = cat;
 
             $scope.page = 1;
             $scope.loadPage = function(page) {
