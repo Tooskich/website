@@ -19,12 +19,12 @@ angular.module('websiteApp')
                     scope.$watch('menRanking', function() {
                         if (scope.menRanking) {
                             scope.genRanking = Ranking.getGeneralRanking(
-                                null, 'H')
+                                'overall', 'H')
                                 .slice(0, 5);
                         }
                         else {
                             scope.genRanking = Ranking.getGeneralRanking(
-                                null, 'F')
+                                'overall', 'F')
                                 .slice(0, 5);
                         }
                     });

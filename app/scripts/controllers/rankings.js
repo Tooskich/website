@@ -45,12 +45,32 @@ angular.module('websiteApp')
              * @type {Object}
              */
             $scope.generalRankings = {
-                G: {
-                    H: Ranking.getGeneralRanking(cat, 'H'),
-                    F: Ranking.getGeneralRanking(cat, 'F')
+                'overall': {
+                    H: Ranking.getGeneralRanking('overall', 'H'),
+                    F: Ranking.getGeneralRanking('overall', 'F')
+                },
+                'downhill': {
+                    H: Ranking.getGeneralRanking('downhill', 'H'),
+                    F: Ranking.getGeneralRanking('downhill', 'F')
+                },
+                'slalom': {
+                    H: Ranking.getGeneralRanking('slalom', 'H'),
+                    F: Ranking.getGeneralRanking('slalom', 'F')
+                },
+                'giant-slalom': {
+                    H: Ranking.getGeneralRanking('giant-slalom', 'H'),
+                    F: Ranking.getGeneralRanking('giant-slalom', 'F')
+                },
+                'super-g': {
+                    H: Ranking.getGeneralRanking('super-g', 'H'),
+                    F: Ranking.getGeneralRanking('super-g', 'F')
+                },
+                'combined': {
+                    H: Ranking.getGeneralRanking('combined', 'H'),
+                    F: Ranking.getGeneralRanking('combined', 'F')
                 }
             };
-            $scope.currentGeneralCategory = 'G';
+            $scope.currentGeneralCategory = 'overall';
             $scope.currentGeneralGenre = 'H';
             $scope.currentGeneralRanking = $scope.generalRankings[$scope.currentGeneralCategory]
             [$scope.currentGeneralGenre];

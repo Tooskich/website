@@ -71,6 +71,22 @@
 					</span>
 				</div>
 			</div>
+			<div class="row" style="text-align:justify;">
+				<div class="col-md-8 col-md-offset-2" style="margin-bottom:5px;">
+					<select
+							class="form-control input-sm"
+							ng-model="categorySelector"
+							ng-init="categorySelector = 'overall'"
+							ng-change="currentGeneralCategory = categorySelector">
+					  <option value="overall">Général</option>
+					  <option value="downhill">Descente</option>
+					  <option value="slalom">Slalom</option>
+					  <option value="giant-slalom">Géant</option>
+					  <option value="super-g">Super G</option>
+					  <option value="combined">Combiné</option>
+					</select>
+				</div>
+			</div>
 
 			<table style="width:100%;">
 				<tr ng-repeat="(index, skier) in currentGeneralRanking" style="margin-bottom:5px;">
