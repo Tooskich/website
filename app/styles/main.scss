@@ -2,6 +2,7 @@ $blue: #219FD1;
 $darkBlue: #334864;
 $red: #FF0000;
 $gray: #d2d2d2;
+$lightgray: #eeeeee;
 
 @font-face {
     font-family: Sansation;
@@ -206,4 +207,9 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
 
 .container {
     width:940px !important;
+}
+
+.discipline-selector {
+    font-weight: bold;
+    background-color: $lightgray;
 }
