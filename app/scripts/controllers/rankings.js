@@ -28,10 +28,18 @@ angular.module('websiteApp')
             $scope.catType = cat;
 
             $scope.page = 1;
+            $scope.nb_results = 0;
             $scope.loadPage = function(page) {
                 Result.getResultLists(page, cat, function(ranks) {
                     $scope.page = page;
-                    $scope.rankings = ranks;
+                    $scope.nb_results += ranks.length;
+
+                    if (cat == 'FIS') {
+                        $scope.rankings = ranks.slice(0, (ranks.length / 2));
+                        $scope.rankings2 = ranks.slice((ranks.length / 2));
+                    } else {
+                        $scope.rankings = ranks;
+                    }
                 });
             };
             $scope.loadPage($scope.page);
