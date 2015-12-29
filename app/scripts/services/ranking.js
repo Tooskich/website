@@ -9,34 +9,43 @@ angular.module('websiteApp')
                 leaders = {
                     men: [],
                     women: [],
-                };
+                },
+                rankings = {};
             $http.get(rankFile, {
                 cache: true
             })
                 .then(function(file) {
-                    var men = file.data[0].men,
-                        women = file.data[0].women;
-                    if (men && men.length >= 1) {
-                        men = men.map(function(el) {
-                            return {
-                                name: el[1],
-                                points: el[3],
-                                country: el[2],
-                                place: el[0],
+                    for (var i = 0; i < file.data.length; i++) {
+                        var id = file.data[i].id,
+                            men = file.data[i].men,
+                            women = file.data[i].women,
+                            item = {
+                                men: [],
+                                women: [],
                             };
-                        });
-                        leaders.men = men;
-                    }
-                    if (women && women.length >= 1) {
-                        women = women.map(function(el) {
-                            return {
-                                name: el[1],
-                                points: el[3],
-                                country: el[2],
-                                place: el[0],
-                            };
-                        });
-                        leaders.women = women;
+                        if (men && men.length >= 1) {
+                            men = men.map(function(el) {
+                                return {
+                                    name: el[1],
+                                    points: el[3],
+                                    country: el[2],
+                                    place: el[0],
+                                };
+                            });
+                            item.men = men;
+                        }
+                        if (women && women.length >= 1) {
+                            women = women.map(function(el) {
+                                return {
+                                    name: el[1],
+                                    points: el[3],
+                                    country: el[2],
+                                    place: el[0],
+                                };
+                            });
+                            item.women = women;
+                        }
+                        rankings[id] = item;
                     }
                 }, function() {
                     console.log(
@@ -61,6 +70,7 @@ angular.module('websiteApp')
                 },
 
                 getGeneralRanking: function(cat, genre) {
+                    leaders = rankings[cat];
                     return genre === 'F' ? leaders.women : leaders.men;
                 },
 
