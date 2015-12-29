@@ -52,6 +52,10 @@ angular
                     templateUrl: 'views/shop.html',
                     controller: 'ShopCtrl'
                 })
+                .when('/sponsors', {
+                  templateUrl: 'views/sponsors.html',
+                  controller: 'SponsorsCtrl'
+                })
                 .otherwise({
                     redirectTo: '/'
                 });
