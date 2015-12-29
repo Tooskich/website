@@ -8,10 +8,8 @@
  * Controller of the websiteApp
  */
 angular.module('websiteApp')
-  .controller('SponsorsCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('SponsorsCtrl', function ($scope, Widget) {
+        Widget.get(2, function(widget) {
+            $scope.widgetContent = widget;
+        });
   });
