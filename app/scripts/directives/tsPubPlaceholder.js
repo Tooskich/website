@@ -6,12 +6,11 @@ angular.module('websiteApp')
             return {
                 templateUrl: 'views/directives/pub/placeholder.html',
                 restrict: 'EACM',
-                scope: {
-                    placeholderName: '=placeholder'
-                },
+                replace: true,
                 link: function postLink(scope, element, attrs) {
-                    var pubs = Pub.getPlaceholder(scope.placeholderName);
-                    scope.horizontal = pubs[0];
+                    var pubs = Pub.getPlaceholder(attrs.placeholder);
+                    scope.pubs = pubs;
+                    console.log(pubs);
                 }
             };
         }
