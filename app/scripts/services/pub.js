@@ -14,6 +14,16 @@ angular.module('websiteApp')
 
             return {
 
+                getPlaceholder: function(placeholder, callback) {
+                    $http.get(pubApi + '?placeholder=' + placeholder, {
+                        cache: true
+                    })
+                        .then(function(res) {
+                            var data = shuffleArray(res.data);
+                            callback(data);
+                        }, Server.errorHandler);
+                },
+
                 getCat: function(cat, callback) {
                     $http.get(pubApi + '?category=' + cat, {
                         cache: true
