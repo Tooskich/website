@@ -213,3 +213,35 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
     font-weight: bold;
     background-color: $lightgray;
 }
+
+/***** ADS ****/
+$ads_categories: (
+  square: (
+    width: 300px,
+    height: 250px,
+  ),
+  vertical: (
+    width: 120px,
+    height: 600px,
+  ),
+  horizontal: (
+    width: 468px,
+    height: 90px,
+  ),
+);
+
+@each $category, $dimensions in $ads_categories {
+  .ad_block_#{$category} {
+    margin: 1px;
+
+    .ad_image_#{$category} {
+      @each $property, $value in $dimensions {
+        #{$property}: #{$value};
+      }
+    }
+  }
+}
+
+.ad_block_horizontal {
+  margin: 20px auto;
+}
