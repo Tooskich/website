@@ -36,15 +36,41 @@ gulp.task('bower', function() { 
          .pipe(gulp.dest(config.bowerDir)) ;
 });
 
-gulp.task('html', function () {
-    return gulp.src(config.htmlPath + '/*.html')
-        .pipe($.connect.reload());
+gulp.task('bower-components', function() { 
+    return gulp.src(config.htmlPath + '/bower_components/**/*')
+         .pipe(gulp.dest(config.buildPath + '/bower_components')) ;
 });
 
 gulp.task('fonts', function () {
     return gulp.src(config.fontsPath + '/*.ttf')
-        .pipe(gulp.dest(config.sassPath))
         .pipe(gulp.dest(config.buildPath + '/fonts'))
+        .pipe($.connect.reload());
+});
+
+gulp.task('html', function () {
+    return gulp.src([
+            config.htmlPath + '/**/*.html',
+            '!' + config.htmlPath + '/bower_components/**/*.html'
+        ])
+        .pipe($.useref())
+        .pipe($.if('*.js', $.uglify()))
+        .pipe($.if('*.css', $.cleanCss()))
+        .pipe(gulp.dest(config.buildPath))
+        .pipe($.connect.reload());
+});
+
+gulp.task('images', function () {
+    return gulp.src([config.imagesPath + '/**/*.{gif,ico,jpg,png,svg}'])
+        .pipe(gulp.dest(config.buildPath + '/images'))
+        .pipe($.connect.reload());
+});
+
+gulp.task('misc', function () {
+    return gulp.src([
+            config.htmlPath + '/favicon.ico',
+            config.htmlPath + '/robots.txt'
+        ])
+        .pipe($.cache(gulp.dest(config.buildPath)))
         .pipe($.connect.reload());
 });
 
@@ -57,25 +83,18 @@ gulp.task('styles', function () {
                 config.bowerDir
             ]
         }))
-        .pipe(gulp.dest(config.sassPath))
+        .pipe($.cache(gulp.dest(config.sassPath)))
         .pipe($.cleanCss())
-        .pipe(gulp.dest(config.cssPath))
+        .pipe($.cache(gulp.dest(config.cssPath)))
         .pipe($.connect.reload());
 });
 
 gulp.task('scripts', function () {
-    return gulp.src([config.jsPath + '/*.js', config.jsPath + '/**/*.js'])
-        .pipe($.uglify('app.min.js', {
-            outSourceMap: true
-        }))
-        .pipe(gulp.dest(config.buildPath + '/scripts'))
-        .pipe($.connect.reload());
-});
-
-gulp.task('images', function () {
-    return gulp.src(config.imagesPath + '/*')
-        .pipe($.image())
-        .pipe(gulp.dest(config.buildPath + '/images'))
+    return gulp.src(config.jsPath + '/**/*.js')
+        .pipe($.concat('scripts.js'))
+        .pipe($.rename({suffix: '.min'}))
+        .pipe($.uglify())
+        .pipe($.cache(gulp.dest(config.buildPath + '/scripts')))
         .pipe($.connect.reload());
 });
 
@@ -84,25 +103,44 @@ gulp.task('watch', function () {
     gulp.watch([config.fontsPath + '/*'], ['fonts']);
 
     // Watch .html files
-    gulp.watch([config.htmlPath + '/*.html'], ['html']);
+    gulp.watch([
+        config.htmlPath + '/**/*.html',
+        config.htmlPath + '/favicon.ico',
+        config.htmlPath + '/robots.txt'
+    ], ['html']);
+
+    // Watch images
+    gulp.watch([config.imagesPath + '/**/*.{gif,ico,jpg,png,svg}'], ['images']);
+
+    // Watch misc files
+    gulp.watch([
+        config.htmlPath + '/favicon.ico',
+        config.htmlPath + '/robots.txt'
+    ], ['misc']);
 
     // Watch .scss files
     gulp.watch([config.sassPath + '/**/*.scss'], ['styles']);
 
-    // Watch images
-    gulp.watch([config.imagesPath + '/*'], ['images']);
-
     // Watch .js files
-    gulp.watch([config.jsPath + '/*.js', config.jsPath + '/**/*.js'], ['scripts']);
+    gulp.watch(config.jsPath + '/**/*.js', ['scripts']);
 });
 
-gulp.task('clean', function () {
-    return gulp.src([config.buildPath], {read: false})
-        .pipe($.clean());
+gulp.task('clean-cache', function () {
+    return $.cache.clearAll();
+});
+
+gulp.task('clean', ['clean-cache'], function () {
+    return gulp.src(config.buildPath + '/*', {read: false})
+        .pipe($.rimraf());
 });
 
 // Build
-gulp.task('build', ['clean', 'bower', 'fonts', 'html', 'styles', 'scripts', 'images']);
+gulp.task('build', ['clean'], function () {
+    gulp.run('bower', 'fonts', 'html', 'images', 'styles', 'scripts');
+});
+
+// Dist serve
+gulp.task('serve', ['connectDist', 'bower-components', 'fonts', 'html', 'images', 'styles', 'scripts']);
 
 // Default task
-gulp.task('default', ['clean', 'build', 'connectDev', 'watch']);
+gulp.task('default', ['connectDev', 'bower', 'fonts', 'html', 'images', 'styles', 'scripts', 'watch']);
