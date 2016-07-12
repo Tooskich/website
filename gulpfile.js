@@ -83,19 +83,46 @@ gulp.task('styles', function () {
                 config.bowerDir
             ]
         }))
+        .pipe($.autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
         .pipe($.cache(gulp.dest(config.sassPath)))
         .pipe($.cleanCss())
         .pipe($.cache(gulp.dest(config.cssPath)))
         .pipe($.connect.reload());
 });
 
-gulp.task('scripts', function () {
-    return gulp.src(config.jsPath + '/**/*.js')
-        .pipe($.concat('scripts.js'))
-        .pipe($.rename({suffix: '.min'}))
-        .pipe($.uglify())
-        .pipe($.cache(gulp.dest(config.buildPath + '/scripts')))
-        .pipe($.connect.reload());
+// gulp.task('scripts', function () {
+//     return gulp.src(config.jsPath + '/**/*.js')
+//         .pipe($.concat('scripts.js'))
+//         .pipe($.rename({suffix: '.min'}))
+//         .pipe($.uglify())
+//         .pipe($.cache(gulp.dest(config.buildPath + '/scripts')))
+//         .pipe($.rev())
+//         .pipe($.cache(gulp.dest(config.buildPath + '/scripts')))
+//         .pipe($.rev.manifest(config.buildPath + '/rev-manifest.json', {
+//             base: config.buildPath,
+//             merge: true
+//         }))
+//         .pipe($.cache(gulp.dest(config.buildPath)))
+//         .pipe($.connect.reload());
+// });
+
+gulp.task("revision", ["styles", "html"], function(){
+  return gulp.src(["dist/**/*.css", "dist/**/*.js"])
+    .pipe($.rev())
+    .pipe(gulp.dest(config.buildPath))
+    .pipe($.rev.manifest())
+    .pipe(gulp.dest(config.buildPath))
+})
+
+gulp.task("revreplace", ["revision"], function(){
+  var manifest = gulp.src(config.buildPath + "/rev-manifest.json");
+
+  return gulp.src(config.buildPath + "/index.html")
+    .pipe($.revReplace({manifest: manifest}))
+    .pipe(gulp.dest(config.buildPath));
 });
 
 gulp.task('watch', function () {
@@ -122,7 +149,7 @@ gulp.task('watch', function () {
     gulp.watch([config.sassPath + '/**/*.scss'], ['styles']);
 
     // Watch .js files
-    gulp.watch(config.jsPath + '/**/*.js', ['scripts']);
+    // gulp.watch(config.jsPath + '/**/*.js', ['scripts']);
 });
 
 gulp.task('clean-cache', function () {
@@ -136,11 +163,11 @@ gulp.task('clean', ['clean-cache'], function () {
 
 // Build
 gulp.task('build', ['clean'], function () {
-    gulp.run('bower', 'fonts', 'html', 'images', 'styles', 'scripts');
+    gulp.run('bower', 'bower-components', 'fonts', 'html', 'images', 'styles', 'revreplace');
 });
 
 // Dist serve
-gulp.task('serve', ['connectDist', 'bower-components', 'fonts', 'html', 'images', 'styles', 'scripts']);
+gulp.task('serve', ['connectDist']);
 
 // Default task
-gulp.task('default', ['connectDev', 'bower', 'fonts', 'html', 'images', 'styles', 'scripts', 'watch']);
+gulp.task('default', ['connectDev', 'build', 'watch']);
