@@ -166,6 +166,14 @@ gulp.task('build', ['clean'], function () {
     gulp.run('bower', 'bower-components', 'fonts', 'html', 'images', 'styles', 'revreplace');
 });
 
+// Deploy on gh-pages branch
+gulp.task('deploy', function() {
+    return gulp.src(config.buildPath + '/**/*')
+        .pipe($.ghPages({
+            remoteUrl: "git@bitbucket.org:ab_tooskich/website.git"
+        }));
+});
+
 // Dist serve
 gulp.task('serve', ['connectDist']);
 
