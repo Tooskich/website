@@ -169,9 +169,7 @@ gulp.task('build', ['clean'], function () {
 // Deploy on gh-pages branch
 gulp.task('deploy', function() {
     return gulp.src(config.buildPath + '/**/*')
-        .pipe($.ghPages({
-            remoteUrl: "git@bitbucket.org:ab_tooskich/website.git"
-        }));
+        .pipe($.ghPages());
 });
 
 // Dist serve
