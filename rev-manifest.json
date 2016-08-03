@@ -9,7 +9,6 @@
   "bower_components/angular-disqus/angular-disqus.js": "bower_components/angular-disqus/angular-disqus-3c6b376e35.js",
   "bower_components/angular-disqus/angular-disqus.min.js": "bower_components/angular-disqus/angular-disqus-a6c6f1988a.min.js",
   "bower_components/angular-disqus/karma.conf.js": "bower_components/angular-disqus/karma-9a57aa2583.conf.js",
-  "bower_components/angular-loading-bar/Gruntfile.js": "bower_components/angular-loading-bar/Gruntfile-29c016da8d.js",
   "bower_components/angular/angular.js": "bower_components/angular/angular-539820dd4c.js",
   "bower_components/angular/angular.min.js": "bower_components/angular/angular-c2361b70ca.min.js",
   "scripts/modules.js": "scripts/modules-0cc5f88f36.js",
