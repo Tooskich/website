@@ -47,7 +47,7 @@ gulp.task('fonts', function () {
         .pipe($.connect.reload());
 });
 
-gulp.task('html', function () {
+gulp.task('html', ["styles"], function () {
     return gulp.src([
             config.htmlPath + '/**/*.html',
             '!' + config.htmlPath + '/bower_components/**/*.html'
@@ -109,7 +109,7 @@ gulp.task('styles', function () {
 //         .pipe($.connect.reload());
 // });
 
-gulp.task("revision", ["styles", "html"], function(){
+gulp.task("revision", ["html"], function(){
   return gulp.src(["dist/**/*.css", "dist/**/*.js"])
     .pipe($.rev())
     .pipe(gulp.dest(config.buildPath))
@@ -163,7 +163,7 @@ gulp.task('clean', ['clean-cache'], function () {
 
 // Build
 gulp.task('build', ['clean'], function () {
-    gulp.run('bower', 'bower-components', 'fonts', 'html', 'images', 'styles', 'revreplace');
+    gulp.run('bower', 'bower-components', 'fonts', 'html', 'images', 'revreplace');
 });
 
 // Deploy on gh-pages branch
