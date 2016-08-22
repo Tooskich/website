@@ -131,6 +131,7 @@ gulp.task('watch', function () {
 
     // Watch .html files
     gulp.watch([
+        config.jsPath + '/**/*.js',
         config.htmlPath + '/**/*.html',
         config.htmlPath + '/favicon.ico',
         config.htmlPath + '/robots.txt'
