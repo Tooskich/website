@@ -8,7 +8,7 @@
 			<img src="images/icons/ursi.png" class="pull-right icon" />
 			{{blogger.name}}
 		</div>
-		<div ng-repeat="(index, n) in news track by index | orderBy:'date':true" class="col-xs-12" style="width:100%;padding:0px;margin-bottom:30px;">
+		<div ng-repeat="n in news | orderBy:'-date'" class="col-xs-12" style="width:100%;padding:0px;margin-bottom:30px;">
 			<div class="row" style="width:100%;">
 				<h4 class="news-title col-xs-12" style="width:100%;">
 					<small>
