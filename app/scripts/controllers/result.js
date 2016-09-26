@@ -19,6 +19,9 @@ angular.module('websiteApp')
                     .html(result.table)
                     .find('table')
                     .addClass('table table-striped table-condensed');
+                // Hack to hide 'FIS Code' column
+                angular.element('#table-content tr').find('th:nth(2)').hide();
+                angular.element('#table-content tr').find('td:nth(2)').hide();
             });
         }
     ]);
