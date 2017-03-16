@@ -10,9 +10,10 @@
   "bower_components/angular-disqus/angular-disqus.min.js": "bower_components/angular-disqus/angular-disqus-a6c6f1988a.min.js",
   "bower_components/angular-disqus/karma.conf.js": "bower_components/angular-disqus/karma-9a57aa2583.conf.js",
   "bower_components/angular-loading-bar/Gruntfile.js": "bower_components/angular-loading-bar/Gruntfile-29c016da8d.js",
+  "bower_components/angular-mocks/angular-mocks.js": "bower_components/angular-mocks/angular-mocks-c0ae134c58.js",
   "bower_components/angular/angular.js": "bower_components/angular/angular-539820dd4c.js",
   "bower_components/angular/angular.min.js": "bower_components/angular/angular-c2361b70ca.min.js",
   "scripts/modules.js": "scripts/modules-0cc5f88f36.js",
-  "scripts/scripts.js": "scripts/scripts-dddd0e8af1.js",
+  "scripts/scripts.js": "scripts/scripts-07417b1a71.js",
   "styles/main.css": "styles/main-d430d17e63.css"
 }
