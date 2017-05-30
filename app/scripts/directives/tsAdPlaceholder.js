@@ -1,20 +1,16 @@
 'use strict';
 
 angular.module('websiteApp')
-    .directive('tsSideAds', ['$window', 'Pub',
+    .directive('tsAdPlaceholder', ['$window', 'Pub',
         function($window, Pub) {
             return {
-                templateUrl: 'views/directives/core/sideads.html',
+                templateUrl: 'views/directives/core/placeholder.html',
                 restrict: 'EACM',
+                replace: true,
                 scope: {
-                    width: '=minWidth',
+                    width: '=?minWidth',
                 },
                 link: function postLink(scope, element, attrs) {
-                    function shuffle(o) { //v1.0
-                        for (var j, x, i = o.length; i; j = Math.floor(Math.random() *
-                            i), x = o[--i], o[i] = o[j], o[j] = x);
-                        return o;
-                    };
 
                     var checkWidth = function(width) {
                         var width = width;
@@ -30,13 +26,16 @@ angular.module('websiteApp')
                     checkWidth = checkWidth(scope.width);
                     checkWidth();
 
-                    Pub.getVerticalBanner(function(banners) {
-                        scope.ad = shuffle(banners)[0];
-                    });
+                    var pubs = Pub.getPlaceholder(
+                        attrs.placeholder,
+                        attrs.category,
+                        function (pubs) {
+                            scope.ad = pubs[0];
+                            scope.cat = attrs.category;
+                        }
+                    );
 
-
-                    angular.element($window)
-                        .on('resize', checkWidth);
+                    angular.element($window).on('resize', checkWidth);
                 }
             };
         }

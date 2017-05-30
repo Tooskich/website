@@ -8,8 +8,10 @@
  * Controller of the websiteApp
  */
 angular.module('websiteApp')
-  .controller('SponsorsCtrl', function ($scope, Widget) {
-        Widget.get(2, function(widget) {
-            $scope.widgetContent = widget;
-        });
-  });
+    .controller('SponsorsCtrl', ['$scope', 'Widget',
+        function ($scope, Widget) {
+            Widget.get(2, function(widget) {
+                $scope.widgetContent = widget;
+            });
+        }
+    ]);

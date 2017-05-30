@@ -11,13 +11,10 @@
   <!-- Disabled responsive: <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /> -->
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-  <!-- build:css(.tmp) styles/main.css -->
+  <!-- build:css(app) styles/main.css -->
   <link rel="stylesheet" href="styles/main.css" />
-
   <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css">
   <link rel="stylesheet" href="bower_components/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.css">
-
-
   <!-- endbuild -->
 </head>
 <body ng-app="websiteApp">
@@ -35,9 +32,11 @@
       <center>
         <div style="max-width:1280px;">
 
-          <div ts-side-ads class="pull-left" style="margin-left:20px;" min-width="1280"></div>
+          <!-- Begin Ads -->
+          <div ts-ad-placeholder placeholder="sides" category="vertical" class="pull-left" style="margin-left:20px;" min-width="1280"></div>
 
-          <div ts-side-ads class="pull-right" style="margin-right:20px;" min-width="1175"></div>
+          <div ts-ad-placeholder placeholder="sides" category="vertical" class="pull-right" style="margin-right:20px;" min-width="1280"></div>
+          <!-- End Ads -->
 
           <!-- Add your site or application content here -->
           <div class="container">
@@ -66,13 +65,13 @@
       </script>
 
       <script src="bower_components/jquery/jquery.js"></script>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.18/angular.min.js"></script>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.18/angular-route.min.js"></script>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.18/angular-resource.min.js"></script>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.18/angular-cookies.min.js"></script>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.18/angular-sanitize.min.js"></script>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.18/angular-animate.min.js"></script>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.18/angular-touch.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-resource.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-cookies.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-sanitize.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-animate.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-touch.min.js"></script>
 
       <!-- build:js scripts/modules.js -->
       <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
@@ -83,7 +82,7 @@
       <script src="bower_components/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.js"></script>
       <!-- endbuild -->
 
-      <!-- build:js({.tmp,app}) scripts/scripts.js -->
+      <!-- build:js(app) scripts/scripts.js -->
       <script src="scripts/app.js"></script>
       <script src="scripts/controllers/main.js"></script>
       <script src="scripts/controllers/mag.js"></script>
@@ -93,6 +92,7 @@
       <script src="scripts/directives/tsNewsCarousel.js"></script>
       <script src="scripts/controllers/news.js"></script>
       <script src="scripts/directives/tsPubSide.js"></script>
+      <script src="scripts/directives/tsAdPlaceholder.js"></script>
       <script src="scripts/directives/tsComments.js"></script>
       <script src="scripts/services/news.js"></script>
       <script src="scripts/directives/tsNavbar.js"></script>

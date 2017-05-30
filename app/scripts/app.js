@@ -28,10 +28,10 @@ angular
                     templateUrl: 'views/news.html',
                     controller: 'NewsCtrl'
                 })
-                .when('/Rankings', {
-                    templateUrl: 'views/rankings.html',
-                    controller: 'RankingsCtrl'
-                })
+                //.when('/Rankings', {
+                //    templateUrl: 'views/rankings.html',
+                //    controller: 'RankingsCtrl'
+                //})
                 .when('/Blog', {
                     templateUrl: 'views/blog.html',
                     controller: 'BlogCtrl'
@@ -40,10 +40,10 @@ angular
                     templateUrl: 'views/page.html',
                     controller: 'PageCtrl'
                 })
-                .when('/Result', {
-                    templateUrl: 'views/result.html',
-                    controller: 'ResultCtrl'
-                })
+                //.when('/Result', {
+                //    templateUrl: 'views/result.html',
+                //    controller: 'ResultCtrl'
+                //})
                 .when('/Skiclubs', {
                     templateUrl: 'views/skiclubs.html',
                     controller: 'SkiclubsCtrl'
